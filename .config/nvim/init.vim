@@ -32,7 +32,7 @@ let mapleader=" "
 "FZF customizations
 :map <leader>f :Files<CR>
 :map <leader>b :Buffers<CR>
-
+:map <leader>c "*y
 
 "NERD Tree Setup
 
