@@ -5,7 +5,8 @@ nnoremap JJJJ <Nop>
 set autoindent
 call plug#begin("~/.vim/plugged")
 " Plugin Section
-
+	Plug 'tpope/vim-surround'
+	Plug 'jiangmiao/auto-pairs'
 	Plug 'Thyrum/vim-stabs'
 	Plug 'airblade/vim-rooter'
 	Plug 'christoomey/vim-tmux-navigator' 
