@@ -1,13 +1,22 @@
+" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
+inoremap jj <Esc>
+
+nnoremap JJJJ <Nop>
+
+
+
 call plug#begin("~/.vim/plugged")
   " Plugin Section
+  Plug 'trotter/autojump.vim'
   Plug 'scrooloose/nerdtree'
+  Plug 'junegunn/vim-easy-align'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'vim-airline/vim-airline'
   Plug 'psliwka/vim-smoothie'
-  Plug 'liuchengxu/vim-which-key'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'junegunn/fzf.vim'
+  Plug 'godlygeek/tabular'
   Plug 'airblade/vim-rooter'
  call plug#end()
 
@@ -33,6 +42,11 @@ let mapleader=" "
 :map <leader>f :Files<CR>
 :map <leader>b :Buffers<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 "NERD Tree Setup
 
