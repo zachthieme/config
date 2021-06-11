@@ -1,15 +1,19 @@
+
+set autoindent
+
 call plug#begin("~/.vim/plugged")
-  " Plugin Section
-  Plug 'scrooloose/nerdtree'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'vim-airline/vim-airline'
-  Plug 'psliwka/vim-smoothie'
-  Plug 'liuchengxu/vim-which-key'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'junegunn/fzf.vim'
-  Plug 'airblade/vim-rooter'
- call plug#end()
+" Plugin Section
+	Plug 'scrooloose/nerdtree'
+	Plug 'christoomey/vim-tmux-navigator' 
+	Plug 'Thyrum/vim-stabs'
+	Plug 'vim-airline/vim-airline'
+	Plug 'psliwka/vim-smoothie'
+	Plug 'liuchengxu/vim-which-key'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'jeffkreeftmeijer/vim-numbertoggle'
+	Plug 'junegunn/fzf.vim'
+	Plug 'airblade/vim-rooter'
+call plug#end()
 
 "Config Section
 " configure airline
@@ -24,15 +28,27 @@ let mapleader=" "
 :set number relativenumber
 :set nowrap
 " :set spell
- 
-" turn on cursor line when in insert mode 
+
+" turn on cursor line when in insert mode
 :autocmd InsertEnter,InsertLeave * set cul!
 :hi CursorLine   cterm=NONE ctermbg=59 ctermfg=white
+
+" set the tab width
+:set shiftwidth=2
+:set tabstop=2
 
 "FZF customizations
 :map <leader>f :Files<CR>
 :map <leader>b :Buffers<CR>
+" Copy to system clipboard
 :map <leader>c "*y
+" Paste from system clipboard
+:map <leader>p "*[p
+" clear out search
+:map <leader>h :let @/ = ""<CR>
+" flatten list into comma seperated
+:map <leader>l :%s/\n/,/g<CR>
+
 
 "NERD Tree Setup
 
