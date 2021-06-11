@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/home/pi/Code/qmk_firmware/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/Code/qmk_firmware/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/pi/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Enable vi mode
 bindkey -v

@@ -1,24 +1,24 @@
 " This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
 inoremap jj <Esc>
-
 nnoremap JJJJ <Nop>
 
-
-
+set autoindent
 call plug#begin("~/.vim/plugged")
-  " Plugin Section
-  Plug 'trotter/autojump.vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'vim-airline/vim-airline'
-  Plug 'psliwka/vim-smoothie'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'junegunn/fzf.vim'
+" Plugin Section
+
+	Plug 'Thyrum/vim-stabs'
+	Plug 'airblade/vim-rooter'
+	Plug 'christoomey/vim-tmux-navigator' 
+	Plug 'jeffkreeftmeijer/vim-numbertoggle'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+	Plug 'liuchengxu/vim-which-key'
+	Plug 'psliwka/vim-smoothie'
+	Plug 'scrooloose/nerdtree'
+	Plug 'vim-airline/vim-airline'
   Plug 'godlygeek/tabular'
-  Plug 'airblade/vim-rooter'
- call plug#end()
+  Plug 'trotter/autojump.vim'
+call plug#end()
 
 "Config Section
 " configure airline
@@ -33,14 +33,26 @@ let mapleader=" "
 :set number relativenumber
 :set nowrap
 " :set spell
- 
-" turn on cursor line when in insert mode 
+
+" turn on cursor line when in insert mode
 :autocmd InsertEnter,InsertLeave * set cul!
 :hi CursorLine   cterm=NONE ctermbg=59 ctermfg=white
+
+" set the tab width
+:set shiftwidth=2
+:set tabstop=2
 
 "FZF customizations
 :map <leader>f :Files<CR>
 :map <leader>b :Buffers<CR>
+" Copy to system clipboard
+:map <leader>c "*y
+" Paste from system clipboard
+:map <leader>p "*[p
+" clear out search
+:map <leader>h :let @/ = ""<CR>
+" flatten list into comma seperated
+:map <leader>l :%s/\n/,/g<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
