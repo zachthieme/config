@@ -10,10 +10,17 @@ set nowrap
 set shiftwidth=2
 set tabstop=2
 set autoindent
+" remove highlighting from searches
+set nohlsearch
+set nowrap
+set scrolloff=8
+set incsearch
+set modeline
 
 call plug#begin("~/.vim/plugged")
 " Plugin Section
-	Plug 'tpope/vim-surround'
+	Plug 'prabirshrestha/vim-lsp'
+	Plug 'tpope/vim-surround' 
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'Thyrum/vim-stabs'
 	Plug 'airblade/vim-rooter'
@@ -64,6 +71,9 @@ nmap ga <Plug>(EasyAlign)
 " set the [ character to toggle nerdtree
 map <leader>n :NERDTreeToggle<CR>
 
+" autogenerate help files
+autocmd BufWritePost ~/.config/nvim/doc/* :helptags ~/.config/nvim/doc
+  
 " Set nerdtree to default to the folder enclosing the file
 autocmd BufEnter * lcd %:p:h
 
