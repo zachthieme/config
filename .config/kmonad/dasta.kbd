@@ -1,0 +1,102 @@
+;; See keymap/tutorial.kbd for a more complete tutorial
+(defalias
+	lnav (layer-toggle navigation)
+	lnum (layer-toggle numbers) 
+	lscr (layer-toggle screen)
+	
+	;; Cluster Buttons
+	;; Space when tapped and Navigation when held
+	spcnav (tap-hold 200 spc @lnav)
+	entnum (tap-hold 200 ret @lnum)
+	tabnum (tap-hold 200 tab @lnum)
+
+	;; Meta Row
+	brcscr (tap-hold 200 [ @lscr)
+	minscr (tap-hold 200 - @lscr)
+
+	;; SpaceCadet Parens
+	psft (tap-hold 200 \( lsft )
+
+	;; Home Row Holds
+	scmeta (tap-hold 200 ; lmet)
+	ameta (tap-hold 200 a lmet)
+	
+	sctl (tap-hold 200 s lctl)
+	llctl (tap-hold 200 l lctl)
+
+	kalt (tap-hold 200 k lalt)
+	dalt (tap-hold 200 d lalt)
+
+	fsft (tap-hold 200 f lsft)
+	jsft (tap-hold 200 j lsft)
+
+	lwrd (around lalt left)
+	rwrd (around lalt right)
+
+	;; window movement
+	lthrd C-A-S-4
+	mthrd C-A-S-5
+	rthrd C-A-S-6
+
+	lhalf C-A-S-left
+	rhalf C-A-S-right
+
+	sthf C-A-S-9
+	sbhf C-A-S-3
+  
+	l2thrd C-A-S-1
+	r2thrd C-A-S-2
+	
+	wmax C-A-S-ret
+)
+
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft up
+  fn   lctl lalt lmet           spc            rmet ralt left down rght
+)
+
+(deflayer default
+  _    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    @ameta    @sctl    @dalt    @fsft    _    _    @jsft    @kalt    @llctl    @scmeta    _ _
+  @psft _    _    _    _    _    _    _    _    _    _    @psft _
+_  _    _    @brcscr              @spcnav      @minscr    _    _    _    _
+)
+
+(deflayer navigation
+	_    f1   f2   f3      f4   f5   f6   f7    f8   f9    f10    f11  f12
+  _    _    _    _       _    _    _    _     _    _     _      _    _    _
+  _    _    _    _    _    _    _    @lwrd    up   @rwrd    _    _    _    _
+	_    _    _    bspc    del  _    _    left  down right _      _    _
+  _    l    _    _       _    _    _    _     _    _     _      _    _
+  _    l    _    _              _              _    _    _    _    _
+)
+
+(deflayer numbers
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _    _    _    _
+)
+
+(deflayer screen
+	_    f1   f2   f3   f4   f5   f6       f7     f8      f9      f10    f11  f12
+  _    _    _    _    _    _    _        _      _       _       _      _    _    _
+  _    _    _    _    _    _    _        _      @wmax   @sthf   _      _    _    _   
+	_    _    _    _    _    _    @lhalf   @lthrd  @mthrd  @rthrd @rhalf _    _
+  _    _    _    _    _    _    _        @l2thrd @r2thrd @sbhf  _      _    _    
+  _    _    _    _              _                        _      _      _    _    _
+)
