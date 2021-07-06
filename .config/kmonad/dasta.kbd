@@ -66,7 +66,7 @@
 )
 
 (deflayer default
-  _    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
+  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    @ameta    @sctl    @dalt    @fsft    _    _    @jsft    @kalt    @llctl    @scmeta    _ _
