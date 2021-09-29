@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:$HOME/bin:$HOME/Code/qmk_firmware/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$HOME/bin:$HOME/Code/qmk_firmware/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
