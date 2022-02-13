@@ -1,0 +1,24 @@
+---
+all:
+  hosts:
+    unifi:
+      ansible_host: unifi.local
+    pi-influx:
+      ansible_host: pi-influx.local
+    pi-speed:
+      ansible_host: pi-speed.local
+    pi-ansible:
+      ansible_host: pi-ansible.local
+  children:
+    pi:
+      hosts:
+        unifi: {}
+#        pi-speed: {}
+        pi-influx: {}
+        #        pi-ansible: {}
+    unifi_server:
+      hosts:
+        unifi: {}
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    remote_user: zach

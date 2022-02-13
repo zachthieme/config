@@ -1,0 +1,39 @@
+---
+- name: Install the packages required for use
+  hosts: pi
+  user: zach
+  tasks:
+    - name: Install neovim
+      become: true
+      apt:
+        name: neovim
+        state: present
+    - name: install PlugInstall
+      become: true
+      shell: sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+    - name: Install autojump
+      become: true
+      apt:
+        name: autojump
+        state: present
+
+    - name: Install code
+      become: true
+      apt:
+        name: code
+        state: present
+
+    - name: Install mosh
+      become: true
+      apt:
+        name: mosh
+        state: present
+
+    - name: Install zsh
+      become: true
+      apt:
+        name: zsh
+        state: present
+
