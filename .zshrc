@@ -67,7 +67,12 @@ fi
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
+
+# set prompt to show when using vim mode for editing
+setopt PROMPT_SUBST
+# Note the single quotes
+RPS1='${MODE_INDICATOR_PROMPT} ${vcs_info_msg_0_}'
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder

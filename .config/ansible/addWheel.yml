@@ -1,10 +1,10 @@
 ---
-- name: add local user Zach
+- name: create wheel group and add users
   hosts: pi
   vars:
     sudoers:
       - zach
-  remote_user: zach
+  remote_user: pi 
   tasks:
     - name: create a 'wheel' group
       become: true
