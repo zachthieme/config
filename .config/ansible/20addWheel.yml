@@ -4,7 +4,7 @@
   vars:
     sudoers:
       - zach
-  remote_user: zach 
+  remote_user: zach
   tasks:
     - name: create a 'wheel' group
       become: true

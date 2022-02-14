@@ -13,9 +13,9 @@ all:
     pi:
       hosts:
         unifi: {}
-#        pi-speed: {}
+        pi-speed: {}
         pi-influx: {}
-        #        pi-ansible: {}
+        pi-ansible: {}
     unifi_server:
       hosts:
         unifi: {}
