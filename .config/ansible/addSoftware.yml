@@ -26,3 +26,9 @@
       apt:
         name: mosh
         state: present
+
+    - name: install xvfb
+      become: true
+      apt:
+        name: xvfb
+        state: present
