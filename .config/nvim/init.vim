@@ -35,6 +35,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'godlygeek/tabular'
   Plug 'trotter/autojump.vim'
 	Plug 'flazz/vim-colorschemes'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'haya14busa/incsearch.vim'
+	Plug 'haya14busa/incsearch-easymotion.vim'
 call plug#end()
 
 "Config Section
@@ -50,6 +53,26 @@ let mapleader=" "
 let NERDTreeShowHidden=1
 " toggle word wrap
 map <leader>w :set wrap!<CR>
+
+" Easymotion fuzzy search
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
+" incsearch.vim x fuzzy x vim-easymotion
+
+" 
+" function! s:config_easyfuzzymotion(...) abort
+"return extend(copy({
+"  \   'converters': [incsearch#config#fuzzy#converter()],
+"  \   'modules': [incsearch#config#easymotion#module()],
+"  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+"  \   'is_expr': 0,
+"  \   'is_stay': 1
+"  \ }), get(a:, 1, {}))
+"endfunction
+"
+"noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 "FZF customizations
 map <leader>f :Files<CR>
@@ -69,10 +92,17 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+<<<<<<< HEAD
 " select all text
 map <leader>a ggVG<CR>
 
 "NERD Tree Setup
+=======
+" get help with which key
+" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+" NERD Tree Setup
+>>>>>>> c1b1b3bcacbe8ed336f0b77912d2bfd059ade6fc
 
 " set the [ character to toggle nerdtree
 map <leader>n :NERDTreeToggle<CR>

@@ -68,7 +68,12 @@ fi
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
+
+# set prompt to show when using vim mode for editing
+setopt PROMPT_SUBST
+# Note the single quotes
+RPS1='${MODE_INDICATOR_PROMPT} ${vcs_info_msg_0_}'
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -79,7 +84,7 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws vi-mode autojump docker git)
+plugins=(aws zsh-vi-mode autojump docker git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,3 +115,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"

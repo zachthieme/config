@@ -1,0 +1,34 @@
+---
+- name: Install custome packages 
+  hosts: pi
+  remote_user: zach
+  tasks:
+    - name: Install neovim
+      become: true
+      apt:
+        name: neovim
+        state: present
+
+    - name: Install autojump
+      become: true
+      apt:
+        name: autojump
+        state: present
+
+    - name: Install code
+      become: true
+      apt:
+        name: code
+        state: present
+
+    - name: Install mosh
+      become: true
+      apt:
+        name: mosh
+        state: present
+
+    - name: install xvfb
+      become: true
+      apt:
+        name: xvfb
+        state: present

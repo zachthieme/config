@@ -1,0 +1,41 @@
+---
+- name: add local user Zach
+  hosts: pi
+  remote_user: pi
+  tasks:
+    - name: Install zsh
+      become: true
+      apt:
+        name: zsh
+        state: present
+
+    - name: Create a login user
+      become: true
+      user:
+        name: zach
+        password: '$6$.Q4QrezN$n55Ad5Os4AR67gZScrx0p9bxH5VRCxlkdx4ZSDTuybST6sIZSDnU3hX6FIDYIQMH12unhLlIRXEabjYq.vjd..'
+        groups: # Empty by default, here we give it some groups
+          - pi
+          - adm
+          - dialout
+          - cdrom
+          - sudo
+          - audio
+          - video
+          - plugdev
+          - games
+          - input
+          - netdev
+          - gpio
+          - i2c
+          - spi
+        state: present
+        shell: /bin/zsh
+        system: no             # Defaults to no
+        createhome: yes        # Defaults to yes
+        home: /home/zach  # Defaults to /home/<username>
+
+    - name: Add empty zshrc
+      file:
+        path: /home/zach/.zshrc
+        state: touch
