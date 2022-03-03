@@ -1,0 +1,163 @@
+{
+  "id": "91ddf973-270b-4cf3-8230-a43e6cb18c34",
+  "version": "2.0",
+  "name": "Reboot Router",
+  "url": "http://192.168.12.1",
+  "tests": [{
+    "id": "9bd2d5be-1745-4d59-8d00-22fde0c26fe1",
+    "name": "Reboot Router",
+    "commands": [{
+      "id": "99bcd0ad-7859-46d6-8aa2-2508c01828da",
+      "comment": "",
+      "command": "open",
+      "target": "/web_whw/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd90cf22-b559-49f3-b054-af7837c8ca4c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1097x1379",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68d1b293-7906-4406-ae66-b285a22ed153",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-button-wrapper",
+      "targets": [
+        ["css=.mat-button-wrapper", "css:finder"],
+        ["xpath=//div[@id='logout']/div/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69533a88-726b-4c71-806f-e2f893579ec6",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-dialog-name-placeholder",
+      "targets": [
+        ["id=login-dialog-name-placeholder", "id"],
+        ["css=#login-dialog-name-placeholder", "css:finder"],
+        ["xpath=//input[@id='login-dialog-name-placeholder']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-login/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "92bf690e-4571-46b2-8469-59cf9d056f34",
+      "comment": "",
+      "command": "type",
+      "target": "id=login-dialog-name-placeholder",
+      "targets": [
+        ["id=login-dialog-name-placeholder", "id"],
+        ["css=#login-dialog-name-placeholder", "css:finder"],
+        ["xpath=//input[@id='login-dialog-name-placeholder']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-login/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "5ef11057-faec-4c4e-be2e-73ad03f3e506",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-dialog-pass-placeholder",
+      "targets": [
+        ["id=login-dialog-pass-placeholder", "id"],
+        ["css=#login-dialog-pass-placeholder", "css:finder"],
+        ["xpath=//input[@id='login-dialog-pass-placeholder']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-login/form/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1d4597e-4899-4395-b07a-0a7f37db6213",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-dialog-pass-placeholder",
+      "targets": [
+        ["id=login-dialog-pass-placeholder", "id"],
+        ["css=#login-dialog-pass-placeholder", "css:finder"],
+        ["xpath=//input[@id='login-dialog-pass-placeholder']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-login/form/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbf4632a-32d9-4853-ba41-270c472dc5f0",
+      "comment": "",
+      "command": "type",
+      "target": "id=login-dialog-pass-placeholder",
+      "targets": [
+        ["id=login-dialog-pass-placeholder", "id"],
+        ["css=#login-dialog-pass-placeholder", "css:finder"],
+        ["xpath=//input[@id='login-dialog-pass-placeholder']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-login/form/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "73a572cf8d"
+    }, {
+      "id": "06d87b5b-86bd-4cc9-8203-ac89981c9b58",
+      "comment": "",
+      "command": "click",
+      "target": "id=login-dialog-button-login",
+      "targets": [
+        ["id=login-dialog-button-login", "id"],
+        ["css=#login-dialog-button-login", "css:finder"],
+        ["xpath=//button[@id='login-dialog-button-login']", "xpath:attributes"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-0']/app-login/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "10df47d1-1521-4315-b93a-abb120f4d07b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=System",
+      "targets": [
+        ["linkText=System", "linkText"],
+        ["css=.menu-item > .ng-tns-c109-6", "css:finder"],
+        ["xpath=//a[contains(text(),'System')]", "xpath:link"],
+        ["xpath=//app-menu[5]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'System')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7da1873-4d7e-48b2-a420-74eec1900d85",
+      "comment": "",
+      "command": "click",
+      "target": "id=restart",
+      "targets": [
+        ["id=restart", "id"],
+        ["css=#restart", "css:finder"],
+        ["xpath=//button[@id='restart']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Reboot')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7694724f-3c84-43bb-8f39-63451a71d002",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nokia-confirm__button",
+      "targets": [
+        ["css=.nokia-confirm__button", "css:finder"],
+        ["xpath=//mat-dialog-container[@id='mat-dialog-1']/app-confirm-dialog/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Yes')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "71490f69-71de-427b-96a1-4a739506df40",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9bd2d5be-1745-4d59-8d00-22fde0c26fe1"]
+  }],
+  "urls": ["http://192.168.12.1/"],
+  "plugins": []
+}
