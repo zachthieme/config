@@ -92,18 +92,13 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-<<<<<<< HEAD
 " select all text
 map <leader>a ggVG<CR>
 
-"NERD Tree Setup
-=======
 " get help with which key
 " nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " NERD Tree Setup
->>>>>>> c1b1b3bcacbe8ed336f0b77912d2bfd059ade6fc
-
 " set the [ character to toggle nerdtree
 map <leader>n :NERDTreeToggle<CR>
 
@@ -122,4 +117,5 @@ if has("gui_vimr")
 	colorscheme monokai 
   highlight Normal guibg=black guifg=white
   set background=light
+
 endif
