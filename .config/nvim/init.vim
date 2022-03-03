@@ -1,4 +1,4 @@
-"remap jj to escape in insert mode.  
+" remap jj to escape in insert mode.  
 inoremap jj <Esc>
 nnoremap JJJJ <Nop>
 
@@ -34,6 +34,7 @@ call plug#begin("~/.vim/plugged")
 	Plug 'vim-airline/vim-airline'
   Plug 'godlygeek/tabular'
   Plug 'trotter/autojump.vim'
+	Plug 'flazz/vim-colorschemes'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'haya14busa/incsearch.vim'
 	Plug 'haya14busa/incsearch-easymotion.vim'
@@ -50,6 +51,8 @@ let mapleader=" "
 
 " default nerdtree to showing hidded files
 let NERDTreeShowHidden=1
+" toggle word wrap
+map <leader>w :set wrap!<CR>
 
 " Easymotion fuzzy search
 map z/ <Plug>(incsearch-easymotion-/)
@@ -89,10 +92,17 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+<<<<<<< HEAD
+" select all text
+map <leader>a ggVG<CR>
+
+"NERD Tree Setup
+=======
 " get help with which key
 " nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " NERD Tree Setup
+>>>>>>> c1b1b3bcacbe8ed336f0b77912d2bfd059ade6fc
 
 " set the [ character to toggle nerdtree
 map <leader>n :NERDTreeToggle<CR>
@@ -106,3 +116,10 @@ autocmd BufEnter * lcd %:p:h
 " turn on cursor line when in insert mode
 autocmd InsertEnter,InsertLeave * set cul!
 hi CursorLine   cterm=NONE ctermbg=59 ctermfg=white
+
+if has("gui_vimr")
+  " Here goes some VimR specific settings like
+	colorscheme monokai 
+  highlight Normal guibg=black guifg=white
+  set background=light
+endif
