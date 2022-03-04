@@ -32,3 +32,10 @@
       apt:
         name: gh 
         state: present
+
+    - name: install zsh-vim plugin
+      git:
+        repo: https://github.com/jeffreytse/zsh-vi-mode
+        dest: $ZSH/custom/plugins/zsh-vi-mode 
+        clone: yes
+        update: yes
