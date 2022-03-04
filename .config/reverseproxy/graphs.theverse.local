@@ -1,0 +1,7 @@
+server {
+	listen 80;
+	server_name graphs.theverse.local;
+	location / {
+	proxy_pass http://10.0.30.9:3030;
+	}
+}
