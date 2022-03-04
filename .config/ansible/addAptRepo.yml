@@ -3,9 +3,11 @@
   hosts: pi
   user: zach
   tasks:
-    - name: run some command
-      shell: curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg;  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+    - name: download gpg key for github cli
       become: true
+      get_url: 
+        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+        dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
 
     - name: Add github
       become: true
@@ -13,6 +15,12 @@
         repo: deb https://cli.github.com/packages stable main
         state: present
         validate_certs: true
+
+    - name: download gpg key for unifi
+      become: true
+      get_url:
+        url: https://dl.ui.com/unifi/unifi-repo.gpg 
+        dest: /etc/apt/trusted.gpg.d/unifi-repo.gpg
 
     - name: Add Unifi
       become: true
