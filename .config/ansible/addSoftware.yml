@@ -27,8 +27,8 @@
         name: mosh
         state: present
 
-    - name: install xvfb
+    - name: install gh
       become: true
       apt:
-        name: xvfb
+        name: gh 
         state: present
