@@ -1,0 +1,5 @@
+---
+- name: adds bare git repo with my unix config 
+  hosts: pi
+  user: zach
+  tasks:
