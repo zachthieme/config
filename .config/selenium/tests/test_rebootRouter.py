@@ -46,7 +46,7 @@ class TestRebootRouter():
     self.driver.find_element(By.ID, "login-dialog-name-placeholder").send_keys("admin")
     self.driver.find_element(By.ID, "login-dialog-pass-placeholder").click()
     self.driver.find_element(By.ID, "login-dialog-pass-placeholder").click()
-    self.driver.find_element(By.ID, "login-dialog-pass-placeholder").send_keys("73a572cf8d")
+    self.driver.find_element(By.ID, "login-dialog-pass-placeholder").send_keys("{{ tmobile_router }}")
     self.driver.find_element(By.ID, "login-dialog-button-login").click()
     self.driver.find_element(By.LINK_TEXT, "System").click()
     self.driver.find_element(By.ID, "restart").click()
