@@ -2,28 +2,25 @@
 - name: adds the additional apt repo's i need
   hosts: pi
   user: zach
+  become: true
   tasks:
     - name: download gpg key for github cli
-      become: true
       get_url: 
         url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
         dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
 
     - name: Add github
-      become: true
       apt_repository:
         repo: deb https://cli.github.com/packages stable main
         state: present
         validate_certs: true
 
     - name: download gpg key for unifi
-      become: true
       get_url:
         url: https://dl.ui.com/unifi/unifi-repo.gpg 
         dest: /etc/apt/trusted.gpg.d/unifi-repo.gpg
 
     - name: Add Unifi
-      become: true
       apt_repository:
         repo: deb https://www.ui.com/downloads/unifi/debian stable ubiquiti
         state: present

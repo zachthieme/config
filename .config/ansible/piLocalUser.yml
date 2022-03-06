@@ -2,15 +2,14 @@
 - name: add local user Zach
   hosts: pi
   remote_user: pi
+  become: true
   tasks:
     - name: Install zsh
-      become: true
       apt:
         name: zsh
         state: present
 
     - name: Create a login user
-      become: true
       user:
         name: zach
         password: '$6$.Q4QrezN$n55Ad5Os4AR67gZScrx0p9bxH5VRCxlkdx4ZSDTuybST6sIZSDnU3hX6FIDYIQMH12unhLlIRXEabjYq.vjd..'

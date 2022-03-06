@@ -1,36 +1,17 @@
 ---
-- name: Install custome packages 
+- name: Install custom packages 
   hosts: pi
   remote_user: zach
+  become: true
   tasks:
-    - name: Install neovim
-      become: true
+    - name: Install apt packages 
       apt:
-        name: neovim
-        state: present
-
-    - name: Install autojump
-      become: true
-      apt:
-        name: autojump
-        state: present
-
-    - name: Install code
-      become: true
-      apt:
-        name: code
-        state: present
-
-    - name: Install mosh
-      become: true
-      apt:
-        name: mosh
-        state: present
-
-    - name: install gh
-      become: true
-      apt:
-        name: gh 
+        name: 
+        - neovim
+        - autojump
+        - code
+        - mosh
+        - gh
         state: present
 
     - name: install vim-plug
