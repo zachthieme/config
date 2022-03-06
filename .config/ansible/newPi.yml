@@ -1,6 +1,5 @@
 #TODO: install ZSH
 #TODO: install PlugInstall
-#TODO: setup config pull from github
 #TODO: delete .zshrc
 #   - name: Remove file (delete file)
 #     ansible.builtin.file:
@@ -8,8 +7,9 @@
 #       state: absent
 
 ---
-- import_playbook: addLocalUser.yml
-- import_playbook: addWheel.yml
-- import_playbook: removePiUser.yml
-- import_playbook: addAptRepo.yml
-- import_playbook: addSoftware.yml
+- import_playbook: piLocalUser.yml
+- import_playbook: piWheel.yml
+- import_playbook: piRemoveUser.yml
+- import_playbook: piAptRepo.yml
+- import_playbook: piSoftware.yml
+- import_playbook: addConfigFiles.yml
