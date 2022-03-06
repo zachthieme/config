@@ -1,0 +1,11 @@
+---
+- name: Install custome packages 
+  hosts: unifi_server
+  remote_user: zach
+  tasks:
+    - name: install nginx 
+      become: true
+      apt:
+        name: nginx 
+        state: present
+
