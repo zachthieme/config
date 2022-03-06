@@ -3,3 +3,25 @@
   hosts: pi
   user: zach
   tasks:
+    - name: ensure .cfg is in .gitignore
+      lineinfile:
+        path: $HOME/.gitignore
+        regexp: '^\.cfg'
+        line: .cfg
+    - name: Checkout config files
+      git: 
+        repo: https://github.com/zachthieme/config
+        dest: $HOME/.cfg
+        bare: yes
+
+    - name: Check out config files 
+      shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout
+      args:
+        chdir: $HOME
+        executable: /usr/bin/zsh
+
+    - name: hide untracked files
+      shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no 
+      args:
+        chdir: $HOME
+        executable: /usr/bin/zsh
