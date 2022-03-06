@@ -1,19 +1,18 @@
 ---
 - name: create wheel group and add users
   hosts: pi
+  become: true
   vars:
     sudoers:
       - zach
   remote_user: pi 
   tasks:
     - name: create a 'wheel' group
-      become: true
       group:
         name: wheel
         state: present
 
     - name: allow 'wheel' to have passwordless sudo
-      become: true
       lineinfile:
         dest: /etc/sudoers
         state: present
@@ -22,7 +21,6 @@
         validate: visudo -cf %s
 
     - name: Add sudoers users to wheel group
-      become: true
       user:
         name: "{{ item }}"
         groups: wheel
