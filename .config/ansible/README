@@ -1,6 +1,0 @@
-How to read from the encrypted file
-➜  ansible-playbook piSoftware.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc
-
-Encrypt a file
-➜  ansible-vault encrypt secrets.enc
-
