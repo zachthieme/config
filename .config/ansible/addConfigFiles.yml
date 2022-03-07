@@ -21,6 +21,14 @@
         dest: $HOME/.oh-my-zsh
       when: not stat_oh_my_zsh_result.stat.exists
 
+    - name: install zsh-vim plugin
+      git:
+        repo: https://github.com/jeffreytse/zsh-vi-mode
+        dest: $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode 
+        clone: yes
+        update: yes
+      when: stat_oh_my_zsh_result.stat.exists
+
     - name: ensure .cfg is in .gitignore
       lineinfile:
         path: $HOME/.gitignore

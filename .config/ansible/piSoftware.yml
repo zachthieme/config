@@ -20,13 +20,6 @@
         dest: $HOME/.local/share/nvim/site/autoload/plug.vim
         force: yes
 
-    - name: install zsh-vim plugin
-      git:
-        repo: https://github.com/jeffreytse/zsh-vi-mode
-        dest: $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode 
-        clone: yes
-        update: yes
-        
     - name: add gh credentials
       shell: gh auth login --with-token 
       args:
