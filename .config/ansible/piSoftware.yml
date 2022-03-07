@@ -2,9 +2,9 @@
 - name: Install custom packages 
   hosts: pi
   remote_user: zach
-  become: true
   tasks:
     - name: Install apt packages 
+      become: true
       apt:
         name: 
         - neovim
@@ -18,15 +18,16 @@
       get_url:
         url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         dest: $HOME/.local/share/nvim/site/autoload/plug.vim
+        force: yes
 
     - name: install zsh-vim plugin
       git:
         repo: https://github.com/jeffreytse/zsh-vi-mode
-        dest: $ZSH/custom/plugins/zsh-vi-mode 
+        dest: $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode 
         clone: yes
         update: yes
         
     - name: add gh credentials
-      shell:  gh auth login --with-token 
+      shell: gh auth login --with-token 
       args:
         stdin: "{{ github_pat }}"

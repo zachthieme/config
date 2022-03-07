@@ -10,6 +10,7 @@
         dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
 
     - name: Add github
+      become: true
       apt_repository:
         repo: deb https://cli.github.com/packages stable main
         state: present
@@ -21,6 +22,7 @@
         dest: /etc/apt/trusted.gpg.d/unifi-repo.gpg
 
     - name: Add Unifi
+      become: true
       apt_repository:
         repo: deb https://www.ui.com/downloads/unifi/debian stable ubiquiti
         state: present

@@ -1,7 +1,24 @@
+# TODO fix me 
+# 
 ---
-- import_playbook: piLocalUser.yml
-- import_playbook: piWheel.yml
-- import_playbook: piRemoveUser.yml
-- import_playbook: piAptRepo.yml
-- import_playbook: piSoftware.yml
-- import_playbook: addConfigFiles.yml
+
+- hosts: pi
+- name: piLocal playbook
+  import_playbook: piLocalUser.yml
+
+- name: piWheel playbook
+  import_playbook: piWheel.yml
+
+- name: piRemoveUser playbook
+  import_playbook: piRemoveUser.yml
+
+- name: import apt
+  import_playbook: piAptRepo.yml
+
+- name: import software 
+  import_playbook: piSoftware.yml
+  vars:
+    github_pat: "{{ github_pat }}"
+
+- name: import config
+  import_playbook: addConfigFiles.yml
