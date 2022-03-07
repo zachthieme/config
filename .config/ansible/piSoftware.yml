@@ -25,3 +25,8 @@
         dest: $ZSH/custom/plugins/zsh-vi-mode 
         clone: yes
         update: yes
+        
+    - name: add gh credentials
+      shell:  gh auth login --with-token 
+      args:
+        stdin: "{{ github_pat }}"
