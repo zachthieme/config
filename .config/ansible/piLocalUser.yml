@@ -12,7 +12,7 @@
     - name: Create a login user
       user:
         name: zach
-        password: '$6$.Q4QrezN$n55Ad5Os4AR67gZScrx0p9bxH5VRCxlkdx4ZSDTuybST6sIZSDnU3hX6FIDYIQMH12unhLlIRXEabjYq.vjd..'
+        password: '{{ zach_pw }}'
         groups: # Empty by default, here we give it some groups
           - pi
           - adm

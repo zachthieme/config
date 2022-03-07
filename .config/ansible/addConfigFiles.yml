@@ -3,6 +3,13 @@
   hosts: pi
   user: zach
   tasks:
+    - name: remove blank .zshrc
+      file:
+        state: absent
+        path: 
+        - $HOME/.zshrc
+        - $HOME/.tmux.conf
+        
     - name: ensure .cfg is in .gitignore
       lineinfile:
         path: $HOME/.gitignore
