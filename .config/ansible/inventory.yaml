@@ -10,7 +10,7 @@ all:
     pi-ansible:
       ansible_host: pi-ansible.local
     pi-octo:
-      ansible_host: pi-octo.local
+      ansible_host: pi-octo.theverse.local
     pi-control:
       ansible_host: pi-control.local
   children:
