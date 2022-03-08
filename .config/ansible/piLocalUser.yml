@@ -9,8 +9,13 @@
         name: zsh
         state: present
 
+    - name: install locale
+      community.general.local_gem:
+        name: en_US.UTF-8
+        state: present
+
     - name: Create a login user
-      user:
+      ansible.builtin.user:
         name: zach
         password: '{{ zach_pw }}'
         groups: # Empty by default, here we give it some groups
