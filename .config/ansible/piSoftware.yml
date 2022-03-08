@@ -24,3 +24,9 @@
       shell: gh auth login --with-token 
       args:
         stdin: "{{ github_pat }}"
+    
+    - name: install required pip3 packages 
+      pip:
+        name: 
+        - ansible-lint
+        state: latest
