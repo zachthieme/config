@@ -9,6 +9,10 @@ all:
       ansible_host: pi-speed.local
     pi-ansible:
       ansible_host: pi-ansible.local
+    pi-octo:
+      ansible_host: pi-octo.local
+    pi-control:
+      ansible_host: pi-control.local
   children:
     pi:
       hosts:
@@ -16,9 +20,18 @@ all:
         pi-speed: {}
         pi-influx: {}
         pi-ansible: {}
+        pi-octo: {}
+        pi-control: {}
     unifi_server:
       hosts:
         unifi: {}
+    k8:
+      hosts:
+        pi-octo: {}
+        pi-ansible: {}
+        pi-control: {}
+        pi-speed: {}
+        pi-influx: {}
   vars:
     ansible_python_interpreter: /usr/bin/python3
     remote_user: zach
