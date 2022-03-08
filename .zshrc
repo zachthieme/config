@@ -14,7 +14,7 @@ bindkey -v
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-if [ -z "$TMUX" ]; then
+if [[ -z "$TMUX" &&  `hostname` != "147ddaa44511.ant.amazon.com" ]]; then
     tmux attach -t default || tmux new -s default
 fi
 
