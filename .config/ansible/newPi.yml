@@ -3,14 +3,6 @@
 ---
 
 - hosts: pi
-- name: piLocal playbook
-  import_playbook: piLocalUser.yml
-
-- name: piWheel playbook
-  import_playbook: piWheel.yml
-
-- name: piRemoveUser playbook
-  import_playbook: piRemoveUser.yml
 
 - name: import apt
   import_playbook: piAptRepo.yml

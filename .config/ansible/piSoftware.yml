@@ -8,10 +8,13 @@
       apt:
         name: 
         - neovim
+        - zsh
         - autojump
         - code
         - mosh
         - gh
+        - ansible
+        - ansible-lint
         state: present
 
     - name: install vim-plug
@@ -24,9 +27,9 @@
       shell: gh auth login --with-token 
       args:
         stdin: "{{ github_pat }}"
+
+    - name: set shell to zsh
+      user:
+        name: zach
+        shell: /bin/zsh
     
-    - name: install required pip3 packages 
-      pip:
-        name: 
-        - ansible-lint
-        state: latest

@@ -2,17 +2,15 @@
 all:
   hosts:
     unifi:
-      ansible_host: unifi.local
+      ansible_host: unifi.theverse.local
     pi-influx:
-      ansible_host: pi-influx.local
+      ansible_host: pi-influx.theverse.local
     pi-speed:
-      ansible_host: pi-speed.local
+      ansible_host: pi-speed.theverse.local
     pi-ansible:
-      ansible_host: pi-ansible.local
+      ansible_host: pi-ansible.theverse.local
     pi-octo:
       ansible_host: pi-octo.theverse.local
-    pi-control:
-      ansible_host: pi-control.local
   children:
     pi:
       hosts:
@@ -21,7 +19,6 @@ all:
         pi-influx: {}
         pi-ansible: {}
         pi-octo: {}
-        pi-control: {}
     unifi_server:
       hosts:
         unifi: {}
@@ -29,7 +26,6 @@ all:
       hosts:
         pi-octo: {}
         pi-ansible: {}
-        pi-control: {}
         pi-speed: {}
         pi-influx: {}
   vars:

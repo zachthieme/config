@@ -3,6 +3,9 @@
   hosts: pi
   remote_user: pi
   become: true
+  vars:
+    sudoers:
+      - zach
 
   tasks:
     - name: Install zsh
@@ -39,3 +42,27 @@
       file:
         path: /home/zach/.zshrc
         state: touch
+
+    - name: create a 'wheel' group
+      group:
+        name: wheel
+        state: present
+
+    - name: allow 'wheel' to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%wheel'
+        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+        validate: visudo -cf %s
+
+    - name: Add sudoers users to wheel group
+      user:
+        name: "{{ item }}"
+        groups: wheel
+        append: yes
+      with_items: " {{ sudoers }}"
+
+    - name: set fact user removed
+      set_fact:
+        pi_user_removed: "true"
