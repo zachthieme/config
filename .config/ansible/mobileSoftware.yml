@@ -1,0 +1,18 @@
+---
+- name: Install custom packages 
+  hosts: mobile 
+  remote_user: zach
+  tasks:
+    - name: Install apt packages 
+      become: true
+      apt:
+        name: 
+        - xrdp
+        - code
+        state: present
+ 
+    - name: add xrdp user to ssl-cert
+      become: true
+      user:
+        name: xrdp
+        group: ssl-cert

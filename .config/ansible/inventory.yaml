@@ -11,6 +11,8 @@ all:
       ansible_host: pi-ansible.theverse.local
     pi-octo:
       ansible_host: pi-octo.theverse.local
+    pi-mobile:
+      ansible_host: pi-mobile.theverse.local
   children:
     pi:
       hosts:
@@ -19,9 +21,13 @@ all:
         pi-influx: {}
         pi-ansible: {}
         pi-octo: {}
+        pi-mobile: {}
     unifi_server:
       hosts:
         unifi: {}
+    mobile:
+      hosts:
+        pi-mobile: {}
     k8:
       hosts:
         pi-octo: {}

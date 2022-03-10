@@ -28,6 +28,11 @@
         clone: yes
       when: stat_oh_my_zsh_result.stat.exists
 
+    - name: create blank gitignore
+      file:
+        path: $HOME/.gitignore
+        state: touch
+
     - name: ensure .cfg is in .gitignore
       lineinfile:
         path: $HOME/.gitignore
