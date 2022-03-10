@@ -16,3 +16,4 @@
       user:
         name: xrdp
         group: ssl-cert
+        append: yes

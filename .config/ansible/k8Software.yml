@@ -29,4 +29,9 @@
       community.general.snap:
         name: microk8s
         classic: yes 
-        
+
+    - name: add zach to microk8s group
+      user:
+        name: zach
+        groups: microk8s
+        append: yes
