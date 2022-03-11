@@ -27,5 +27,5 @@
     - name: add xrdp user to ssl-cert
       user:
         name: xrdp
-        group: ssl-cert
+        groups: ssl-cert
         append: yes

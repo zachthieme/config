@@ -6,8 +6,7 @@
 
 ## retry with limited hosts 
 
-		➜ ansible-playbook newPi.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc --limit @/home/zach/.config/ansib│
-le/newPi.retry
+    ➜ ansible-playbook newPi.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc --limit @/home/zach/.config/ansible/newPi.retry
 
 ## execute the below commands
 
@@ -16,3 +15,7 @@ le/newPi.retry
 ## Encrypt a file
 
     ➜  ansible-vault encrypt secrets.enc
+
+## adhoc command
+    ➜ ansible k8 -m command -a uptime -i inventory.yaml
+	

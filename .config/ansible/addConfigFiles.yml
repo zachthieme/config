@@ -33,6 +33,11 @@
         clone: yes
       when: stat_oh_my_zsh_result.stat.exists
 
+    - name: check if gitignore exists
+      stat:
+        path: $HOME/.gitignore
+      register: stat_gitignore_result
+      
     - name: create blank gitignore
       file:
         path: $HOME/.gitignore
