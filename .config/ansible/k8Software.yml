@@ -4,11 +4,6 @@
   remote_user: zach
   become: true
   tasks:
-    - name: Install apt packages 
-      apt:
-        name: 
-        - snapd
-        state: present
 
     - name: Enable container features
       replace:
@@ -20,11 +15,6 @@
         - "cgroup_memory=1"
         - "cgroup_enable=memory"
 
-    - name: install snap's
-      community.general.snap:
-        name:
-          - core
-            
     - name: install k8 
       community.general.snap:
         name: microk8s

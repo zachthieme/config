@@ -14,10 +14,17 @@
         - mosh
         - gh
         - ansible
+        - snapd
         - ansible-lint
         - tmux
         state: present
  
+    - name: install snap's
+      become: true
+      community.general.snap:
+        name:
+          - core
+
     - name: add folder  for vim plug
       file:
         path: $HOME/.local/share/nvim/site/autoload/
