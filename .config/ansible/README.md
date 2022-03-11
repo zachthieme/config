@@ -4,6 +4,11 @@
 
     ➜  ansible-playbook newPi.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc
 
+## retry with limited hosts 
+
+		➜ ansible-playbook newPi.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc --limit @/home/zach/.config/ansib│
+le/newPi.retry
+
 ## execute the below commands
 
 <https://gist.githubusercontent.com/zachthieme/3bc2fa206e2922543232725a68c3bcb2/raw/f7ce7f37f78a56ca776713844e0d414a3fb8bf5d/Commands.sh>
