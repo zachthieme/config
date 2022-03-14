@@ -7,11 +7,16 @@
     - name: Install apt packages 
       apt:
         name: 
-        - code
+        - dnsmasq
+        - xserver-xorg
+        - xinit
+        - x11-xserver-utils
+        - xdm
+        - suckless-tools
         - xmonad
         - xmobar
         - libghc-xmonad-contrib-dev
-        - dnsmasq
+        - code
         state: present
 
     - name: update /etc/modules 
@@ -60,7 +65,7 @@
         dest: /root/usb.sh 
         mode: a+x
  
-    - name: Ensure we have our own comment added to /etc/services
+    - name: Ensure rc.local has usb config in it
       lineinfile:
         path: /etc/rc.local
         insertbefore: 'exit 0'
