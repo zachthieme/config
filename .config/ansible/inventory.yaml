@@ -13,6 +13,8 @@ all:
       ansible_host: pi-octo.theverse.local
     pi-mobile:
       ansible_host: pi-mobile.theverse.local
+    pi-test:
+      ansible_host: pi-test.theverse.local    
   children:
     pi:
       hosts:
@@ -22,12 +24,14 @@ all:
         pi-ansible: {}
         pi-octo: {}
         pi-mobile: {}
+        pi-test: {}
     unifi_server:
       hosts:
         unifi: {}
     mobile:
       hosts:
         pi-mobile: {}
+        pi-test: {}
     k8:
       hosts:
         pi-octo: {}

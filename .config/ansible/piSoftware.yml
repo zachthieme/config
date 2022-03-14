@@ -25,6 +25,7 @@
       community.general.snap:
         name:
           - core
+          - starship
 
     - name: add folder  for vim plug
       file:

@@ -17,6 +17,7 @@
         - xmobar
         - libghc-xmonad-contrib-dev
         - code
+        - lxterminal 
         state: present
 
     - name: update /etc/modules 

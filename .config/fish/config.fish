@@ -1,3 +1,4 @@
+set PATH /snap/bin /usr/local/bin $PATH
 begin
     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
     if test -e $AUTOJUMP_PATH
