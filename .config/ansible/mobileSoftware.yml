@@ -7,9 +7,22 @@
     - name: Install apt packages 
       apt:
         name: 
-        - xrdp
         - code
+        - xmonad
+        - xmobar
+        - libghc-xmonad-contrib-dev
+        - dnsmasq
         state: present
+
+    - name: update /etc/modules 
+      lineinfile:
+        path: /etc/modules
+        line: libcomposite
+
+    - name: update dhcp settings 
+      lineinfile:
+        path: /etc/dhcpcd.conf
+        line: denyinterfaces usb0 
 
     - name: update commandline.txt to support ethernet/usb
       replace:
@@ -23,9 +36,22 @@
       lineinfile:
         path: /boot/config.txt
         line: dtoverlay=dwc2
+
+    - name: add usb dnsmasq config
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: $HOME/.local/share/nvim/site/autoload/plug.vim
+        force: ye
+
+    - name: add usb interfact config 
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: $HOME/.local/share/nvim/site/autoload/plug.vim
+        force: ye
+
+    - name: add usb.sh
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: $HOME/.local/share/nvim/site/autoload/plug.vim
+        force: ye
  
-    - name: add xrdp user to ssl-cert
-      user:
-        name: xrdp
-        groups: ssl-cert
-        append: yes
