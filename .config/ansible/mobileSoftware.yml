@@ -39,19 +39,30 @@
 
     - name: add usb dnsmasq config
       get_url:
-        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        dest: $HOME/.local/share/nvim/site/autoload/plug.vim
-        force: ye
+        url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/dnsmasq_usb 
+        dest: /etc/dnsmasq.d/usb 
+        force: yes
 
     - name: add usb interfact config 
       get_url:
-        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        dest: $HOME/.local/share/nvim/site/autoload/plug.vim
-        force: ye
+        url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/interface_usb
+        dest: /etc/network/interfaces.d/usb0 
+        force: yes
 
     - name: add usb.sh
       get_url:
-        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        dest: $HOME/.local/share/nvim/site/autoload/plug.vim
-        force: ye
+        url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/usb.sh 
+        dest: /root/usb.sh 
+        force: yes
+    
+    - name: Changing perm of usb.sh 
+      file: 
+        dest: /root/usb.sh 
+        mode: a+x
  
+    - name: Ensure we have our own comment added to /etc/services
+      lineinfile:
+        path: /etc/rc.local
+        insertbefore: 'exit 0'
+        line: /root/usb.sh
+        state: present
