@@ -4,4 +4,4 @@ import XMonad.Util.Ungrab
 import XMonad.Hooks.DynamicLog
 
 main :: IO ()
-main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ myConfig
+main = xmonad . ewmh =<< xmobar myConfig
