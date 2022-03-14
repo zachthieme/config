@@ -9,7 +9,7 @@
       apt:
         name: 
         - neovim
-        - zsh
+        - fish
         - autojump
         - code
         - mosh
@@ -42,8 +42,8 @@
       args:
         stdin: "{{ github_pat }}"
 
-    - name: set shell to zsh
+    - name: set shell to fish
       become: true
       user:
         name: zach
-        shell: /bin/zsh
+        shell: /usr/bin/fish
