@@ -13,13 +13,17 @@
         - x11-xserver-utils
         - xdm
         - suckless-tools
-        - xmonad
         - xmobar
-        - libghc-xmonad-contrib-dev
         - code
         - lxterminal 
         - chromium-browser
         state: present
+
+
+    - name: update xsession 
+      lineinfile:
+        path: $HOME/.xsession
+        line: exec xmonad
 
     - name: update /etc/modules 
       lineinfile:

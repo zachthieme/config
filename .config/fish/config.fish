@@ -1,5 +1,5 @@
 # Set Path
-set PATH /snap/bin /usr/local/bin $PATH
+set -x PATH /snap/bin /usr/local/bin $PATH
 
 # setup autojump for fish shell
 begin
@@ -8,6 +8,10 @@ begin
         source $AUTOJUMP_PATH
     end
 end
+
+# setup any fish plugins
+fish_vi_key_bindings
+set fish_greeting
 
 # setup starship 
 starship init fish | source
