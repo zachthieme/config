@@ -18,6 +18,7 @@
         - libghc-xmonad-contrib-dev
         - code
         - lxterminal 
+        - chromium-browser
         state: present
 
     - name: update /etc/modules 

@@ -1,8 +1,8 @@
-
 import XMonad
+import XMonad.Config.Desktop
 
-main :: IO ()
-main = xmonad def
+main = xmonad desktopConfig
     { terminal    = "lxterminal"
-    , borderWidth = 3
+                , modMask = mod4Mask
+    , borderWidth = 5
     }

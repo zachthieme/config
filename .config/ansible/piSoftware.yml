@@ -26,7 +26,7 @@
         name:
           - core
           - starship
-
+    
     - name: add folder  for vim plug
       file:
         path: $HOME/.local/share/nvim/site/autoload/
