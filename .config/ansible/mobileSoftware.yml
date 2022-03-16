@@ -13,6 +13,13 @@
         - x11-xserver-utils
         - xdm
         - suckless-tools
+        - libx11-dev
+        - libxft-dev
+        - libxinerama-dev
+        - libxrandr-dev
+        - libxss-dev
+        - gnome-keyring
+        - cabal-install
         - xmobar
         - code
         - lxterminal 
@@ -24,6 +31,7 @@
       lineinfile:
         path: $HOME/.xsession
         line: exec xmonad
+        create: yes
 
     - name: update /etc/modules 
       lineinfile:
