@@ -21,21 +21,21 @@
     path: /boot/config.txt
     line: dtoverlay=dwc2
 
-- name: add usb dnsmasq config
-  get_url:
-    url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/dnsmasq_usb
+- name: copu dnsmask conf
+  copy:
+    src: dnsmasq_usb
     dest: /etc/dnsmasq.d/usb
     force: yes
 
-- name: add usb interfact config
-  get_url:
-    url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/interface_usb
+- name: copy usb interface config
+  copy:
+    src: usb0
     dest: /etc/network/interfaces.d/usb0
     force: yes
 
-- name: add usb.sh
-  get_url:
-    url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/usb.sh
+- name: copy usb.sh 
+  copy:
+    src: usb.sh
     dest: /root/usb.sh
     force: yes
 
