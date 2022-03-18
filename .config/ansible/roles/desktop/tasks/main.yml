@@ -12,6 +12,7 @@
     - lxterminal
     - chromium-browser
     - xwallpaper
+    - i3status
     state: present
 
 - name: update xsession for i3
