@@ -1,0 +1,52 @@
+- name: update /etc/modules
+  lineinfile:
+    path: /etc/modules
+    line: libcomposite
+
+- name: update dhcp settings
+  lineinfile:
+    path: /etc/dhcpcd.conf
+    line: denyinterfaces usb0
+
+- name: update commandline.txt to support ethernet/usb
+  replace:
+    path: /boot/cmdline.txt
+    regexp: '^([\w](?!.*\b{{ item }}\b).*)$'
+    replace: '\1 {{ item }}'
+  with_items:
+    - "modules-load=dwc2,g_ether"
+
+- name: update config.txt
+  lineinfile:
+    path: /boot/config.txt
+    line: dtoverlay=dwc2
+
+- name: add usb dnsmasq config
+  get_url:
+    url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/dnsmasq_usb
+    dest: /etc/dnsmasq.d/usb
+    force: yes
+
+- name: add usb interfact config
+  get_url:
+    url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/interface_usb
+    dest: /etc/network/interfaces.d/usb0
+    force: yes
+
+- name: add usb.sh
+  get_url:
+    url: https://raw.githubusercontent.com/zachthieme/config/master/.config/ansible/network/usb.sh
+    dest: /root/usb.sh
+    force: yes
+
+- name: Changing perm of usb.sh
+  file:
+    dest: /root/usb.sh
+    mode: a+x
+
+- name: Ensure rc.local has usb config in it
+  lineinfile:
+        path: /etc/rc.local
+        insertbefore: 'exit 0'
+        line: /root/usb.sh
+        state: present

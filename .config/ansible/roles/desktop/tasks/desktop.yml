@@ -1,0 +1,21 @@
+- name: Install apt packages
+  apt:
+    name:
+    - dnsmasq
+    - xserver-xorg
+    - xinit
+    - x11-xserver-utils
+    - xdm
+    - i3-wm
+    - gnome-keyring
+    - code
+    - lxterminal
+    - chromium-browser
+    - xwallpaper
+    state: present
+
+- name: update xsession
+  lineinfile:
+    path: $HOME/.xsession
+    line: exec i3 
+    create: yes
