@@ -28,7 +28,7 @@ all:
     unifi_server:
       hosts:
         unifi: {}
-    mobile:
+    desktop:
       hosts:
         pi-mobile: {}
         pi-test: {}
