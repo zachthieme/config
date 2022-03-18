@@ -1,4 +1,4 @@
-- name: Install apt packages
+- name: Install graphical apps
   apt:
     name:
     - dnsmasq
@@ -14,7 +14,7 @@
     - xwallpaper
     state: present
 
-- name: update xsession
+- name: update xsession for i3
   lineinfile:
     path: $HOME/.xsession
     line: exec i3 

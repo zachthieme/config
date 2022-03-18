@@ -1,28 +1,23 @@
 ---
-- name: Setup reboot router flask app 
-  hosts: pi
-  remote_user: zach
-  become: true
-  tasks:
-    - name: Create app folder 
-      file:
-        name: /opt/RebootRouter
-        state: directory
-        recurse: yes
+- name: Create app folder 
+  file:
+    name: /opt/RebootRouter
+    state: directory
+    recurse: yes
 
-    - name: install virtualenv
-      pip:
-        executable: /usr/bin/pip3
-        name: virtualenv
-        state: latest
+- name: install virtualenv
+  pip:
+    executable: /usr/bin/pip3
+    name: virtualenv
+    state: latest
 
-    - name: create virtual env for app
-      pip:
-        virtualenv_python: /usr/bin/python3
-        name: 
-        - flask
-        - celery
-        - selenium
-        - requests
-        state: latest
-        virtualenv: /opt/RebootRouter/appenv
+- name: create virtual env for app
+  pip:
+    virtualenv_python: /usr/bin/python3
+    name: 
+    - flask
+    - celery
+    - selenium
+    - requests
+    state: latest
+    virtualenv: /opt/RebootRouter/appenv
