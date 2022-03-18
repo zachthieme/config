@@ -1,12 +1,12 @@
 # How To Run Ansible Stuff
 
-## execute the below command and it should execute all the playbooks in order
+## this command should bring all hosts up to current setting 
 
-    ➜  ansible-playbook newPi.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc
+    ➜ ansible-playbook configurations.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc 
 
 ## retry with limited hosts 
 
-    ➜ ansible-playbook newPi.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc --limit @/home/zach/.config/ansible/newPi.retry
+    ➜ ansible-playbook configurations.yml -i inventory.yaml --ask-vault-pass --extra-vars @secrets.enc --limit @/home/zach/.config/ansible/test.yml
 
 ## execute the below commands
 
