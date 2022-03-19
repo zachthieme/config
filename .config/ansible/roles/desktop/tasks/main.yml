@@ -1,4 +1,5 @@
 - name: Install graphical apps
+  become: true
   apt:
     name:
     - dnsmasq

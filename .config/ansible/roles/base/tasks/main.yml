@@ -1,4 +1,13 @@
+- name: check who i am
+  ansible.builtin.command: whoami
+  register: result
+
+- name: print user name 
+  ansible.builtin.debug:
+    var: result.stdout  
+
 - name: download gpg key for github cli
+  become: true
   get_url: 
     url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
     dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
@@ -11,6 +20,7 @@
     validate_certs: true
 
 - name: download gpg key for unifi
+  become: true
   get_url:
     url: https://dl.ui.com/unifi/unifi-repo.gpg 
     dest: /etc/apt/trusted.gpg.d/unifi-repo.gpg
@@ -94,7 +104,6 @@
     repo: https://github.com/zachthieme/config
     dest: $HOME/.cfg
     bare: yes
-    force: yes
     update: yes
 
 - name: Check out config files 
