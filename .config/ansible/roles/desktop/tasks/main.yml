@@ -7,6 +7,7 @@
     - xinit
     - x11-xserver-utils
     - xdm
+    - xrdp
     - i3-wm
     - gnome-keyring
     - code
@@ -14,10 +15,17 @@
     - chromium-browser
     - xwallpaper
     - i3status
+    - polybar
     state: present
 
 - name: update xsession for i3
   lineinfile:
     path: $HOME/.xsession
-    line: exec i3 
+    line: exec /usr/bin/i3 
     create: yes
+
+- name: add xrdp user to ssl-cert
+  become: true
+  user:
+    name: xrdp
+    group: ssl-cert
