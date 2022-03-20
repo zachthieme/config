@@ -6,8 +6,8 @@
     - xserver-xorg
     - xinit
     - x11-xserver-utils
-    - xdm
     - xrdp
+    - xdm
     - i3-wm
     - gnome-keyring
     - code
@@ -16,6 +16,7 @@
     - xwallpaper
     - i3status
     - polybar
+    - rofi
     state: present
 
 - name: update xsession for i3
