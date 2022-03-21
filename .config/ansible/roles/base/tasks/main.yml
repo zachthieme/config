@@ -70,6 +70,12 @@
   args:
     stdin: "{{ github_pat }}"
 
+- name: fixup git to let us push
+  shell: gh config set git_protocol https -h github.com
+
+- name: more git fixing
+  shell: gh auth setup-git
+
 - name: set shell to fish
   become: true
   user:
