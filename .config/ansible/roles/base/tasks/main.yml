@@ -6,11 +6,6 @@
   ansible.builtin.debug:
     var: result.stdout
 
-- name: Ensure a locale exists
-   community.general.locale_gen:
-     name: en_US.UTF-8
-     state: present
-
 - name: download gpg key for github cli
   become: true
   get_url: 
