@@ -1,11 +1,11 @@
-[bar/top]
-myscript-background = #f00
-myscript-command = whoami
+#!/bin/bash
 
-[bar/bottom]
-myscript-background = #f00
-myscript-command = date +%s
+# Terminate already running bar instances
+killall -q polybar
+# If all your bars have ipc enabled, you can also use 
+# polybar-msg cmd quit
 
-[module/myscript]
-format-background = ${root.myscript-background}
-exec = ${root.myscript-command}
+# Launch Polybar, using default config location ~/.config/polybar/config.ini
+polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+
+echo "Polybar launched..."
