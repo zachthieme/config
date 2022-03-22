@@ -17,6 +17,8 @@
     - i3status
     - polybar
     - rofi
+    - yad
+    - xdotool
     state: present
 
 - name: update xsession for i3
