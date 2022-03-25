@@ -2,7 +2,6 @@
   become: true
   apt:
     name:
-    - dnsmasq
     - xserver-xorg
     - xinit
     - x11-xserver-utils
@@ -13,7 +12,6 @@
     - code
     - lxterminal
     - chromium-browser
-    - xwallpaper
     - i3status
     - polybar
     - rofi
@@ -30,3 +28,12 @@
   user:
     name: xrdp
     group: ssl-cert
+
+- name: adjust line to enable xorg to work for zach user
+  become: true
+  lineinfile:
+    path: /etc/X11/xrdp/xorg.conf
+    regexp: '^\s.*DRMDevice.*$'
+    line: '    Option "DRMDevice" ""'
+    backrefs: yes
+

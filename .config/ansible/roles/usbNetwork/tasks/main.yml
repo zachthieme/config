@@ -1,3 +1,10 @@
+- name: Install graphical apps
+  become: true
+  apt:
+    name:
+    - dnsmasq
+    state: present
+
 - name: update /etc/modules
   become: true
   lineinfile:
