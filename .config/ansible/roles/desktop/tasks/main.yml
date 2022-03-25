@@ -2,7 +2,6 @@
   become: true
   apt:
     name:
-    - dnsmasq
     - xserver-xorg
     - xinit
     - x11-xserver-utils
@@ -13,12 +12,12 @@
     - code
     - lxterminal
     - chromium-browser
-    - xwallpaper
     - i3status
     - polybar
     - rofi
     - yad
     - xdotool
+    - feh
     state: present
 
 - name: update xsession for i3
