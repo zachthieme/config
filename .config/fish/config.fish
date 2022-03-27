@@ -1,5 +1,5 @@
 # Set Path
-set -x PATH /snap/bin /usr/local/bin $PATH
+set -x PATH $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
 
 # setup autojump for fish shell
 begin
