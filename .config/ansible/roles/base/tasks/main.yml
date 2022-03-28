@@ -1,11 +1,3 @@
-- name: check who i am
-  ansible.builtin.command: whoami
-  register: result
-
-- name: print user name 
-  ansible.builtin.debug:
-    var: result.stdout
-
 - name: download gpg key for github cli
   become: true
   get_url: 
@@ -45,6 +37,7 @@
     - snapd
     - ansible-lint
     - tmux
+    - npm
     state: present
 
 - name: install snap's
