@@ -27,11 +27,13 @@ myConfig = def
     { modMask    = mod4Mask      -- Rebind Mod to the Super key
     , layoutHook = myLayout      -- Use custom layouts
     , manageHook = myManageHook  -- Match on certain windows
+		, terminal   = "lxterminal"
     }
   `additionalKeysP`
     [ ("M-S-z", spawn "xscreensaver-command -lock")
     , ("M-S-=", unGrab *> spawn "scrot -s"        )
-    , ("M-]"  , spawn "firefox"                   )
+    , ("M-]"  , spawn "chromium-browser"                   )
+    , ("M-d"  , spawn "rofi -show run"                   )
     ]
 
 myManageHook :: ManageHook
