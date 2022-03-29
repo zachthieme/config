@@ -1,0 +1,68 @@
+- name: Install graphical apps
+  become: true
+  apt:
+    name:
+    - dnsmasq
+    state: present
+
+- name: update /etc/modules
+  become: true
+  lineinfile:
+    path: /etc/modules
+    line: libcomposite
+
+- name: update dhcp settings
+  become: true
+  lineinfile:
+    path: /etc/dhcpcd.conf
+    line: denyinterfaces usb0
+
+- name: update commandline.txt to support ethernet/usb
+  become: true
+  replace:
+    path: /boot/cmdline.txt
+    regexp: '^([\w](?!.*\b{{ item }}\b).*)$'
+    replace: '\1 {{ item }}'
+  with_items:
+    - "modules-load=dwc2,g_ether"
+
+- name: update config.txt
+  become: true
+  lineinfile:
+    path: /boot/config.txt
+    line: dtoverlay=dwc2
+
+- name: copy dnsmasq conf
+  become: true
+  copy:
+    src: dnsmasq_usb
+    dest: /etc/dnsmasq.d/usb
+    force: yes
+
+- name: copy usb interface config
+  become: true
+  copy:
+    src: usb0
+    dest: /etc/network/interfaces.d/usb0
+    force: yes
+
+- name: copy usb.sh 
+  become: true
+  copy:
+    src: usb.sh
+    dest: /root/usb.sh
+    force: yes
+
+- name: Changing perm of usb.sh
+  become: true
+  file:
+    dest: /root/usb.sh
+    mode: a+x
+
+- name: Ensure rc.local has usb config in it
+  become: true
+  lineinfile:
+        path: /etc/rc.local
+        insertbefore: 'exit 0'
+        line: /root/usb.sh
+        state: present

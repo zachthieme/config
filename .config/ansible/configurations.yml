@@ -1,0 +1,20 @@
+---
+
+- hosts: all
+  ignore_unreachable: yes
+  roles: 
+    - base
+
+- hosts: desktop
+  ignore_unreachable: yes
+  roles:
+    - desktop
+    - usbNetwork
+    - xmonad
+
+- hosts: k8
+  ignore_unreachable: yes
+  become: true
+  roles:
+    - k8
+

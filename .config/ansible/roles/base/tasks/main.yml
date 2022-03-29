@@ -1,0 +1,127 @@
+- name: download gpg key for github cli
+  become: true
+  get_url: 
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
+
+- name: Add github apt source
+  become: true
+  apt_repository:
+    repo: deb https://cli.github.com/packages stable main
+    state: present
+    validate_certs: true
+
+- name: download gpg key for unifi
+  become: true
+  get_url:
+    url: https://dl.ui.com/unifi/unifi-repo.gpg 
+    dest: /etc/apt/trusted.gpg.d/unifi-repo.gpg
+
+- name: Add Unifi apt source
+  become: true
+  apt_repository:
+    repo: deb https://www.ui.com/downloads/unifi/debian stable ubiquiti
+    state: present
+    validate_certs: true
+
+- name: Install command line tools
+  become: true
+  apt:
+    name: 
+    - neovim
+    - fish
+    - autojump
+    - mosh
+    - gh
+    - ansible
+    - snapd
+    - ansible-lint
+    - tmux
+    - npm
+    state: present
+
+- name: install snap's
+  become: true
+  community.general.snap:
+    name:
+      - core
+      - starship
+
+- name: add folder for vim plug (vim plugin manager)
+  file:
+    path: $HOME/.local/share/nvim/site/autoload/
+    state: directory
+      
+- name: install vim-plug
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: $HOME/.local/share/nvim/site/autoload/plug.vim
+    force: yes
+
+- name: add gh credentials
+  shell: gh auth login --with-token 
+  args:
+    stdin: "{{ github_pat }}"
+
+- name: fixup git to let us push
+  shell: gh config set git_protocol https -h github.com
+
+- name: more git fixing
+  shell: gh auth setup-git
+
+- name: set shell to fish
+  become: true
+  user:
+    name: zach
+    shell: /usr/bin/fish
+
+- name: remove blank .tmux.conf
+  file:
+    state: absent
+    path: 
+    - $HOME/.tmux.conf
+
+- name: check if gitignore exists
+  stat:
+    path: $HOME/.gitignore
+  register: stat_gitignore_result
+  
+- name: create blank gitignore
+  file:
+    path: $HOME/.gitignore
+    state: touch
+  when: not stat_gitignore_result.stat.exists
+
+- name: ensure .cfg is in .gitignore
+  lineinfile:
+    path: $HOME/.gitignore
+    regexp: '^\.cfg'
+    line: .cfg
+
+- name: Clone config files
+  git: 
+    repo: https://github.com/zachthieme/config
+    dest: $HOME/.cfg
+    bare: yes
+    update: yes
+
+- name: Check out config files 
+  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout -f
+  args:
+    chdir: $HOME
+    executable: /usr/bin/fish
+
+- name: hide untracked files
+  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --local status.showUntrackedFiles no 
+  args:
+    chdir: $HOME
+    executable: /usr/bin/fish
+
+- name: set git upstream
+  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push --set-upstream origin master
+
+- name: set git email
+  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.email "zach@techsage.org"
+
+- name: set git name
+  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.name "Zach Thieme"

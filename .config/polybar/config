@@ -1,0 +1,13 @@
+[bar/mybar]
+modules-center = popup-calendar
+bottom = false
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d%
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
