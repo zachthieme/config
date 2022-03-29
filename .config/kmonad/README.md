@@ -12,6 +12,9 @@ ln -s <massive path from above>/kmonad /usr/bin/local/kmonad
 cd ~/.config/kmoand/kmonad/
 open c_src/mac/Karabiner-DriverKit-VirtualHIDDevice/dist/Karabiner-DriverKit-VirtualHIDDevice-1.15.0.pkg
 
+## activate the driver
+/Applications/.Karabiner-VirtualHIDDevice-Manager.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Manager activate
+
 ## authorize the binary in the System Prefrences
 drag and drop kmonad to  "Security and Privacy/Privacy/Input Monitoring"
 
