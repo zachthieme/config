@@ -12,6 +12,7 @@ import XMonad.Util.Ungrab
 
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Spacing 
 
 import XMonad.Hooks.EwmhDesktops
 
@@ -25,14 +26,13 @@ main = xmonad
 
 myConfig = def
     { modMask    = mod4Mask      -- Rebind Mod to the Super key
-    , layoutHook = myLayout      -- Use custom layouts
+    , layoutHook = spacing 10 $ myLayout -- Use custom layouts
     , manageHook = myManageHook  -- Match on certain windows
 		, terminal   = "lxterminal"
+		, focusFollowsMouse = False
     }
   `additionalKeysP`
-    [ ("M-S-z", spawn "xscreensaver-command -lock")
-    , ("M-S-=", unGrab *> spawn "scrot -s"        )
-    , ("M-]"  , spawn "chromium-browser"                   )
+    [ ("M-]"  , spawn "chromium-browser"                   )
     , ("M-d"  , spawn "rofi -show run"                   )
     ]
 

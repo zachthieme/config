@@ -8,6 +8,7 @@
 	;; Space when tapped and Navigation when held
 	spcnav (tap-hold 200 spc @lnav)
 	entnum (tap-hold 200 ret @lnum)
+	escnum (tap-hold 200 esc @lnum)
 	tabnum (tap-hold 200 tab @lnum)
 
 	;; Meta Row
@@ -33,6 +34,8 @@
 
 	lwrd (around lalt left)
 	rwrd (around lalt right)
+	eol  (around lmet righ)
+	bol  (around lmet left)
 
 	;; window movement
 	lthrd C-A-S-4
@@ -58,55 +61,46 @@
 )
 
 (defsrc
-  esc       f1        f2        f3        f4        f5        f6        f7        f8        f9        f10       f11       f12
-  grv       1         2         3         4         5         6         7         8         9         0         -         =         bspc
-  tab       q         w         e         r         t         y         u         i         o         p         [          ]         \
-  caps      a         s         d         f         g         h         j         k         l         ;         '         ret
-  lsft      z         x         c         v         b         n         m         ,         .         /         rsft       up
-  fn        lctl      lalt      lmet           spc                                          rmet      ralt      left       down     rght
+  esc     f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12
+  grv     1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab     q       w       e       r       t       y       u       i       o       p       [        ]       \
+  caps    a       s       d       f       g       h       j       k       l       ;       '       ret
+  lsft    z       x       c       v       b       n       m       ,       .       /       rsft     up
+  fn      lctl    lalt    lmet                   spc                      rmet    ralt    left     down   rght
 )
 
 (deflayer default
-  esc       f1        f2        f3        f4        f5        f6        f7        f8        f9        f10       f11       f12
-  grv       1         2         3         4         5         6         7         8         9         0         -         =         bspc
-  tab       q         w         e         r         t         y         u         i         o         p         [          ]         \
-  caps      @ameta    @sctl     @dalt     @fsft     g         h         @jsft     @kalt     @llctl    @scmeta   '         ret
-  lsft      z         x         c         v         b         n         m         ,         .         /         rsft       up
-  fn        lctl      lalt      lmet           @spcnav                                      rmet      ralt      left       down     rght
+  esc     f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12
+  grv     1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab     q       w       e       r       t       y       u       i       o       p       [       ]       \
+  @escnum @ameta  @sctl   @dalt   @fsft   g       h       @jsft   @kalt   @llctl  @scmeta '       @entnum
+  @plsft  z       x       c       v       b       n       m       ,       .       /       @prsft  up
+  fn      lctl    lalt    @brcscr              @spcnav                    @minscr ralt    left    down    rght
 )
 
-;; (deflayer default
-;;  _         _         _         _         _         _         _         _         _         _         _         _         _
-;;  _         _         _         _         _         _         _         _         _         _         _         _         _         _
-;;  _         _         _         _         _         _         _         _         _         _         _         _         _         _
-;; _         @ameta    @sctl     @dalt     @fsft     _         _         @jsft     @kalt     @llctl    @scmeta   _         _
-;;  @plsft    _         _         _         _         _         _         _         _         _         _         @prsft     _
-;;  _         _         _               @brcscr                                 @spcnav      @minscr    _         _         _         _
-;;)
-
 (deflayer navigation
-	_         _         _         _         _         _         _         _         _         _         _         _         _
- 	_         _         _         _         _         _         _         _         _         _         _         _         _         _
-  	_         _         _         _         _         _         _         @lwrd     up        @rwrd     _         _         _         _
-	_         _         _         bspc      del       _         left      down      up        right     _         _         _
-  	_         _         _         _         _         _         _         _         _         _         _         _         _
-  	_         _         _                   _                                       _         _         _         _         _         _
+	_       _       _       _       _       _       _       _       _       _       _       _       _
+ 	_       _       _       _       _       _       _       _       _       _       _       _       _       _
+ 	_       _       _       _       _       _       _       @lwrd   up      @rwrd   _       _       _       _
+	_       _       _       bspc    del     _       left    down    up      right   @bol    @eol    _ 
+ 	_       _       _       _       _       _       @new    @pup    @brk    @pdwn   @find   _       _
+ 	_       _       _       _                       _                       _       _       _       _       _
 )
 
 (deflayer numbers
-  _         _         _         _         _         _         _         _         _         _         _         _         _
-  _         _         _         _         _         _         _         _         _         _         _         _         _         _
-  _         _         _         _         _         _         _         7         8         9         _         _         _         _
-  _         _         _         _         _         _         _         4         5         6         _         _         _
-  _         _         _         _         _         _         _         1         2         3         _         _         _
-  _         _         _                   _                                       0         .         _         _         _         _
+  _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       7       8       9       _       _       _       _
+  _       _       _       _       _       _       _       4       5       6       _       _       _
+  _       _       _       _       _       _       _       1       2       3       _       _       _
+  _       _       _       _                       _                       0       .       _       _       _
 )
 
 (deflayer screen
-	_         _         _         _         _         _         _         _         _         _         _         _         _
-  _         _         _         _         _         _         _         _         _         _         _         _         _         _
-  _         _         _         _         _         _         _         _         @wmax     @sthf     _         _         _         _
-	_         _         _         _         _         _         @lhalf    @lthrd    @mthrd    @rthrd    @rhalf    _         _
-  _         _         _         _         _         _         _         @l2thrd   @r2thrd   @sbhf     _         _         _
-  _         _         _                   _                                       _         _         _         _         _         _
+	_       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       @wmax   @sthf   _       _       _       _
+	_       _       _       _       _       _       @lhalf  @lthrd  @mthrd  @rthrd  @rhalf  _       _
+  _       _       _       _       _       _       _       @l2thrd @r2thrd @sbhf   _       _       _
+  _       _       _       _                       _                       _       _       _       _       _
 )
