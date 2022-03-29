@@ -26,7 +26,7 @@ main = xmonad
 
 myConfig = def
     { modMask    = mod4Mask      -- Rebind Mod to the Super key
-    , layoutHook = spacing 10 $ myLayout -- Use custom layouts
+    , layoutHook = spacing 5 $ myLayout -- Use custom layouts
     , manageHook = myManageHook  -- Match on certain windows
 		, terminal   = "lxterminal"
 		, focusFollowsMouse = False

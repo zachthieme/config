@@ -10,6 +10,10 @@
 	entnum (tap-hold 200 ret @lnum)
 	escnum (tap-hold 200 esc @lnum)
 	tabnum (tap-hold 200 tab @lnum)
+  lcnum (tap-hold 200 @launch @lnum)
+
+  ;; general short cuts
+  launch (around lmet space)
 
 	;; Meta Row
 	brcscr (tap-hold 200 [ @lscr)
@@ -75,7 +79,7 @@
   tab     q       w       e       r       t       y       u       i       o       p       [       ]       \
   @escnum @ameta  @sctl   @dalt   @fsft   g       h       @jsft   @kalt   @llctl  @scmeta '       @entnum
   @plsft  z       x       c       v       b       n       m       ,       .       /       @prsft  up
-  fn      lctl    lalt    @brcscr              @spcnav                    @minscr ralt    left    down    rght
+  fn      lctl    @lcnum  @brcscr              @spcnav                    @minscr ralt    left    down    rght
 )
 
 (deflayer navigation
