@@ -5,6 +5,10 @@
   roles: 
     - base
 
+- hosts: unifi_server
+  roles:
+    - unifi
+      
 - hosts: desktop
   ignore_unreachable: yes
   roles:
