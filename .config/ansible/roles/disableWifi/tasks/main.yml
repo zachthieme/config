@@ -1,0 +1,3 @@
+- name: disable wifi
+  become: true
+  command: rfkill block wifi
