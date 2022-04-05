@@ -17,4 +17,10 @@
   become: true
   roles:
     - k8
+    - disableWifi
 
+- hosts: unifi
+  ignore_unreachable: yes
+  become: true
+  roles:
+    - disableWifi
