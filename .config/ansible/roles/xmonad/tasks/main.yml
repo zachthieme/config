@@ -1,0 +1,45 @@
+- name: Install xmonad dependencies
+  become: true
+  apt:
+    name: 
+    - libx11-dev 
+    - libxft-dev 
+    - libxinerama-dev 
+    - libxrandr-dev 
+    - libxss-dev
+    - cabal-install 
+    state: present
+
+- name: clone xmonad repo
+  git:
+    repo: https://github.com/xmonad/xmonad
+    dest: $HOME/.config/xmonad/xmonad
+    update: yes
+
+- name: clone xmonad-contrib repo
+  git:
+    repo: https://github.com/xmonad/xmonad-contrib
+    dest: $HOME/.config/xmonad/xmonad-contrib
+    update: yes
+
+- name: create cabal project file
+  copy:
+    dest: $HOME/.config/xmonad/cabal.project
+    content: |
+      packages: */*.cabal
+
+- name: update cabal
+  command:       
+    cmd: cabal update
+    chdir: $HOME/.config/xmonad
+
+- name: build cabal lib
+  command: 
+    cmd: cabal install --package-env=$HOME/.config/xmonad --lib xmonad xmonad-contrib  
+    chdir: $HOME/.config/xmonad
+  
+- name: install xmonad
+  command: 
+    cmd: cabal install --package-env=$HOME/.config/xmonad xmonad
+    chdir: $HOME/.config/xmonad
+    
