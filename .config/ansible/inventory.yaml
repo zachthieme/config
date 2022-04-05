@@ -1,37 +1,46 @@
 ---
 all:
   hosts:
-    unifi:
-      ansible_host: unifi.theverse.local
+    pi-unifi:
+      ansible_host: pi-unifi.theverse.local
+      ansible_ssh_public: pi-unifi_public 
+      ansible_ssh_private: pi-unifi_private 
     pi-influx:
       ansible_host: pi-influx.theverse.local
+      ansible_ssh_public: pi-influx_public 
+      ansible_ssh_private: pi-influx_private 
     pi-speed:
       ansible_host: pi-speed.theverse.local
+      ansible_ssh_public: pi-speed_public 
+      ansible_ssh_private: pi-speed_private 
     pi-ansible:
       ansible_host: pi-ansible.theverse.local
+      ansible_ssh_public: pi-ansible_public 
+      ansible_ssh_private: pi-ansible_private 
     pi-octo:
       ansible_host: pi-octo.theverse.local
+      ansible_ssh_public: pi-octo_public 
+      ansible_ssh_private: pi-octo_private 
     pi-mobile:
       ansible_host: pi-mobile.theverse.local
+      ansible_ssh_public: pi-mobile_public 
+      ansible_ssh_private: pi-mobile_private 
     pi-test:
       ansible_host: pi-test.theverse.local    
+      ansible_ssh_public: pi-test_public 
+      ansible_ssh_private: pi-test_private 
   children:
     pi:
       hosts:
-        unifi: {}
+        pi-unifi: {}
         pi-speed: {}
-        pi-influx: {}
         pi-ansible: {}
-        pi-octo: {}
         pi-mobile: {}
-        pi-test: {}
-    unifi_server:
-      hosts:
-        unifi: {}
+        pi-influx: {}
+        pi-octo: {}
     desktop:
       hosts:
         pi-mobile: {}
-        pi-test: {}
     k8:
       hosts:
         pi-octo: {}

@@ -125,3 +125,7 @@
 
 - name: set git name
   shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.name "Zach Thieme"
+
+- name: disable wifi
+  become: true
+  command: rfkill block wifi

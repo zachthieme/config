@@ -40,3 +40,6 @@
     line: '    Option "DRMDevice" ""'
     backrefs: yes
 
+- name: enable wifi
+  become: true
+  command: rfkill unblock wifi
