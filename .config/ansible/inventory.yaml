@@ -2,7 +2,8 @@
 all:
   hosts:
     pi-unifi:
-      ansible_host: pi-unifi.theverse.local
+      ansible_host: localhost 
+      ansible_connection: local
       ansible_ssh_public: pi-unifi_public 
       ansible_ssh_private: pi-unifi_private 
     pi-influx:
@@ -25,10 +26,6 @@ all:
       ansible_host: pi-mobile.theverse.local
       ansible_ssh_public: pi-mobile_public 
       ansible_ssh_private: pi-mobile_private 
-    pi-test:
-      ansible_host: pi-test.theverse.local    
-      ansible_ssh_public: pi-test_public 
-      ansible_ssh_private: pi-test_private 
   children:
     pi:
       hosts:
