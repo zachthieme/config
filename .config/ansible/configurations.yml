@@ -4,17 +4,13 @@
   ignore_unreachable: yes
   roles: 
     - base
+    - update
 
-- hosts: unifi_server
-  roles:
-    - unifi
-      
 - hosts: desktop
   ignore_unreachable: yes
   roles:
     - desktop
     - usbNetwork
-    - xmonad
 
 - hosts: k8
   ignore_unreachable: yes
