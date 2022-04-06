@@ -18,6 +18,7 @@
     - yad
     - xdotool
     - feh
+    - picom
     state: present
 
 - name: update xsession for i3
@@ -39,3 +40,14 @@
     regexp: '^\s.*DRMDevice.*$'
     line: '    Option "DRMDevice" ""'
     backrefs: yes
+
+- name: enable natural scrolling
+  become: true
+  copy:
+    src: 20-natural-scrolling.conf
+    dest: /usr/share/X11/xorg.conf.d/20-natural-scrolling.conf
+
+- name:  copy wallpappers
+  copy:
+    src: Wallpapers
+    dest: $HOME
