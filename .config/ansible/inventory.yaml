@@ -38,6 +38,9 @@ all:
     desktop:
       hosts:
         pi-mobile: {}
+    unifi:
+      hosts:
+        pi-unifi: {}
     k8:
       hosts:
         pi-octo: {}
