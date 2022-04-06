@@ -12,6 +12,7 @@
   roles:
     - desktop
     - usbNetwork
+    - kmonad
 
 - hosts: k8
   ignore_unreachable: yes
