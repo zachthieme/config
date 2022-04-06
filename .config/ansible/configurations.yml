@@ -5,6 +5,7 @@
   roles: 
     - base
     - update
+    - gitConfig
 
 - hosts: desktop
   ignore_unreachable: yes
