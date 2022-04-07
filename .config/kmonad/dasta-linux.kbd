@@ -19,8 +19,8 @@
 	save (around lctl s)
 	undo (around lctl z)
 	cut (around lctl x)
-	copy (around lctl lsft c)
-	pst (around lctl lsft v)
+	copy C-S-c
+	pst C-S-v 
 	zin (around lctl +)
 	zout (around lctl -)
 	
@@ -80,8 +80,8 @@
 )
 
 (defcfg
-  input (iokit-name "Apple Internal Keyboard / Trackpad")
-  output (kext)
+  input (device-file "/dev/input/by-id/usb-Apple_Inc._Apple_Keyboard-event-kbd")
+  output (uinput-sink "dasta") 
   fallthrough true
 )
 
@@ -91,7 +91,7 @@
   tab     q       w       e       r       t       y       u       i       o       p       [        ]       \
   caps    a       s       d       f       g       h       j       k       l       ;       '       ret
   lsft    z       x       c       v       b       n       m       ,       .       /       rsft     up
-  fn      lctl    lalt    lmet                   spc                      rmet    ralt    left     down   rght
+  f       lctl    lalt    lmet                   spc                      rmet    ralt    left     down   rght
 )
 
 (deflayer default
@@ -100,7 +100,7 @@
   tab     q       w       e       r       t       y       u       i       o       p       [       ]       \
   @escnum @ameta  @sctl   @dalt   @fsft   g       h       @jsft   @kalt   @llctl  @scmeta '       @entnum
   @plsft  z       x       c       v       b       n       m       ,       .       /       @prsft  up
-  fn      lctl    @lcnum  @brcscr              @spcnav                    @minscr ralt    left    down    rght
+  f       lctl    @lcnum  @brcscr              @spcnav                    @minscr ralt    left    down    rght
 )
 
 (deflayer navigation
