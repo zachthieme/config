@@ -69,3 +69,12 @@
     state: absent
     path: 
     - $HOME/.tmux.conf
+
+- name: enable password logins on ssh
+    lineinfile:
+      become: true
+      path: /etc/ssh/sshd_config
+      regexp: "^#PasswordAuthentication"
+      line: PasswordAuthentication yes
+      state: present
+      backrefs: true
