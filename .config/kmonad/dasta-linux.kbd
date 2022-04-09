@@ -26,7 +26,7 @@
 	
 
 	;; general short cuts
-	launch (around lmet space)
+	launch (around lmet d)
 	
 	;; Cluster Buttons
 	;; Space when tapped and Navigation when held
