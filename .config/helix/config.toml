@@ -3,6 +3,7 @@ theme = "onedark"
 [editor]
 line-number = "relative"
 mouse = false
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -12,7 +13,6 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
 [keys.normal]
 0 = "goto_line_start"
 "$" = "goto_line_end"
