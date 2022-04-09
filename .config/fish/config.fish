@@ -2,7 +2,9 @@
 set -x PATH $HOME/.cargo/bin $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
 set -x EDITOR nvim
+set -x HELIX_RUNTIME $HOME/.config/helix/runtime
 set -x VISUAL nvim
+set -g fish_term24bit 1
 
 # setup autojump for fish shell
 begin

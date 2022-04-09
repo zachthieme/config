@@ -192,6 +192,6 @@ bar {
 }
 
 
-exec_always picom
+#exec_always picom
 
 exec_always feh --randomize --bg-fill ~/Wallpapers/*
