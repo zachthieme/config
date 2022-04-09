@@ -1,5 +1,5 @@
 # Set Path
-set -x PATH $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
+set -x PATH $HOME/.cargo/bin $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
 set -x EDITOR nvim
 set -x VISUAL nvim
