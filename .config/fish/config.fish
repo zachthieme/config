@@ -1,9 +1,12 @@
 # Set Path
 set -x PATH $HOME/.cargo/bin $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
+
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
-set -x EDITOR nvim
 set -x HELIX_RUNTIME $HOME/.config/helix/runtime
-set -x VISUAL nvim
+
+set -x EDITOR hx
+set -x VISUAL hx
+
 set -g fish_term24bit 1
 
 # setup autojump for fish shell
@@ -23,3 +26,4 @@ starship init fish | source
 
 # ALIASES
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias vi='hx'

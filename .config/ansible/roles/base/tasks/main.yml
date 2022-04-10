@@ -29,6 +29,8 @@
   apt:
     name: 
     - neovim
+    - exa
+    - bat
     - fish
     - autojump
     - mosh
