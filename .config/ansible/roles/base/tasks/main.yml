@@ -31,6 +31,8 @@
     - neovim
     - exa
     - bat
+    - ripgrep
+    - fd-find
     - fish
     - autojump
     - mosh
