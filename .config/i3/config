@@ -18,6 +18,9 @@ font pango:monospace 8
 # Remove title bars
 default_border pixel 0
 
+# stop the mouse movement from changng focus
+focus_follows_mouse no
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -187,3 +190,8 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+
+#exec_always picom
+
+exec_always feh --randomize --bg-fill ~/Wallpapers/*

@@ -29,6 +29,10 @@
   apt:
     name: 
     - neovim
+    - exa
+    - bat
+    - ripgrep
+    - fd-find
     - fish
     - autojump
     - mosh
@@ -69,3 +73,12 @@
     state: absent
     path: 
     - $HOME/.tmux.conf
+
+- name: enable password logins on ssh
+    lineinfile:
+      become: true
+      path: /etc/ssh/sshd_config
+      regexp: "^#PasswordAuthentication"
+      line: PasswordAuthentication yes
+      state: present
+      backrefs: true

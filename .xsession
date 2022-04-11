@@ -1,5 +1,3 @@
-picom & 
-
-feh --randomize --bg-fill ~/Wallpapers/* &
+Xcursor.core: 1
 
 exec /usr/bin/i3

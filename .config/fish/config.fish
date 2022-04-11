@@ -1,6 +1,14 @@
 # Set Path
-set -x PATH $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
+set -x PATH $HOME/.cargo/bin $HOME/.cabal/bin /snap/bin /usr/local/bin $PATH
+
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
+set -x HELIX_RUNTIME $HOME/.config/helix/runtime
+
+set -x EDITOR hx
+set -x VISUAL hx
+
+set -g fish_term24bit 1
+set -g theme_nerd_fonts yes
 
 # setup autojump for fish shell
 begin
@@ -19,3 +27,8 @@ starship init fish | source
 
 # ALIASES
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias vi='hx'
+alias exa='exa --group-directories-first'
+alias l='exa'
+alias la='exa -la'
+alias a='exa -a'
