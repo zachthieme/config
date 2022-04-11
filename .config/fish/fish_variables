@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr_n:fdfind\x20\x2e\x20/home/zach/\x2econfig\x20\x2dH\x20\x2d\x2dchanged\x2dwithin\x201d\x20\x2dE\x20chromium\x20\x2dx\x20/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d\x24HOME/\x2ecfg/\x20\x2d\x2dwork\x2dtree\x3d\x24HOME\x20ls\x2dfiles\x20\x2d\x2dothers\x20\x7b\x7d\x20\x7c\x20uniq
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/zach/\x2econfig/fish/functions/fisher\x2efish\x1e/home/zach/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_norcalli_2F_autojump_files:/home/zach/\x2econfig/fish/functions/__aj_err\x2efish\x1e/home/zach/\x2econfig/fish/functions/j\x2efish\x1e/home/zach/\x2econfig/fish/functions/jc\x2efish\x1e/home/zach/\x2econfig/fish/functions/jco\x2efish\x1e/home/zach/\x2econfig/fish/functions/jo\x2efish\x1e/home/zach/\x2econfig/fish/conf\x2ed/autojump\x2efish\x1e/home/zach/\x2econfig/fish/completions/j\x2efish\x1e/home/zach/\x2econfig/fish/completions/jc\x2efish\x1e/home/zach/\x2econfig/fish/completions/jco\x2efish\x1e/home/zach/\x2econfig/fish/completions/jo\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1enorcalli/autojump

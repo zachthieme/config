@@ -32,4 +32,6 @@ alias exa='exa --group-directories-first'
 alias l='exa'
 alias la='exa -la'
 alias a='exa -a'
-alias nf='fdfind . /home/zach/.config -H --changed-within 1d -E chromium | rargs /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others "{0}" | uniq'
+
+alias nf='fdfind . /home/zach/.config -H --changed-within 1d -E chromium -x /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | uniq'
+
