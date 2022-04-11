@@ -42,6 +42,7 @@
     - ansible-lint
     - tmux
     - npm
+    - cargo 
     state: present
 
 - name: install snap's
