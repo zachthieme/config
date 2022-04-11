@@ -8,6 +8,7 @@ set -x EDITOR hx
 set -x VISUAL hx
 
 set -g fish_term24bit 1
+set -g theme_nerd_fonts yes
 
 # setup autojump for fish shell
 begin
@@ -28,3 +29,6 @@ starship init fish | source
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vi='hx'
 alias exa='exa --group-directories-first'
+alias l='exa'
+alias la='exa -la'
+alias a='exa -a'
