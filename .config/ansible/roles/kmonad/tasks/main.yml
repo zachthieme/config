@@ -1,0 +1,25 @@
+- name: clone kmonad repo
+  git: 
+    repo: https://github.com/kmonad/kmonad
+    dest: $HOME/code/kmonad
+    update: yes
+
+- name: install dependencies
+  become: true
+  apt:
+    name:
+    - cabal-install 
+    state: present
+
+- name: update cabal
+  command:
+    cmd: cabal update
+    chdir: $HOME/code/kmonad
+
+- name: install kmonad
+  command: 
+    cmd: cabal install --package-env=$HOME/code/kmonad kmonad
+    chdir: $HOME/code/kmonad
+    
+
+
