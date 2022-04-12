@@ -16,7 +16,8 @@ set $mod Mod4
 font pango:monospace 8
 
 # Remove title bars
-default_border pixel 0
+default_border pixel 2 
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 
 # stop the mouse movement from changng focus
 focus_follows_mouse no
