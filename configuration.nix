@@ -4,15 +4,10 @@
 
 { config, pkgs, ... }:
 
-let
-  unstable = import <nixos-unstable> {};
-in
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#      ./wm.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -40,18 +35,15 @@ in
     keyMap = "us";
   };
 
+  # set shells
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
-  services.xserver.windowManager.xmonad.extraPackages = haskellPackages: [
-    unstable.haskellPackages.xmobar
-    unstable.haskellPackages.xmonad
-    unstable.haskellPackages.xmonad-contrib
-    unstable.haskellPackages.xmonad-extras
-  ];
 
   # Enable rdp
   services.xrdp.enable = true;
@@ -83,23 +75,10 @@ in
 
   # install packages
   environment.systemPackages = with pkgs; [
-    # x tools
-    alacritty
-    google-chrome
-    networkmanager
-    # Command line tools
-    mosh
-    fish
-    git
-    wget
     neovim
+    wget
     tmux
-    unstable.helix
-    # xmonad stuff
-    nitrogen
-    picom
-    rofi
-    vscode
+    networkmanager
   ];
 
   nixpkgs.config.allowUnfree = true;
