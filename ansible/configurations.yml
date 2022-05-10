@@ -3,9 +3,7 @@
 - hosts: all
   ignore_unreachable: yes
   roles: 
-    - base
     - update
-    - gitConfig
 
 - hosts: desktop
   ignore_unreachable: yes

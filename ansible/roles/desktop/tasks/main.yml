@@ -46,8 +46,3 @@
     src: Wallpapers
     dest: $HOME
 
-- name: copy file for natural scrolling
-    become: true
-    copy:
-      src: 40-libinput.conf
-      dest: /usr/share/X11/xorg.conf.d/40-libinput.conf
