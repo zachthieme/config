@@ -1,52 +1,35 @@
 ---
 all:
   hosts:
-    pi-unifi:
-      ansible_host: localhost 
-      ansible_connection: local
-      ansible_ssh_public: pi-unifi_public 
-      ansible_ssh_private: pi-unifi_private 
-    pi-influx:
-      ansible_host: pi-influx.theverse.local
-      ansible_ssh_public: pi-influx_public 
-      ansible_ssh_private: pi-influx_private 
-    pi-speed:
-      ansible_host: pi-speed.theverse.local
-      ansible_ssh_public: pi-speed_public 
-      ansible_ssh_private: pi-speed_private 
-    pi-ansible:
-      ansible_host: pi-ansible.theverse.local
-      ansible_ssh_public: pi-ansible_public 
-      ansible_ssh_private: pi-ansible_private 
-    pi-octo:
-      ansible_host: pi-octo.theverse.local
-      ansible_ssh_public: pi-octo_public 
-      ansible_ssh_private: pi-octo_private 
-    pi-mobile:
-      ansible_host: pi-mobile.theverse.local
-      ansible_ssh_public: pi-mobile_public 
-      ansible_ssh_private: pi-mobile_private 
+    pi-kub01:
+      ansible_host: pi-kub01.theverse 
+    pi-kub02:
+      ansible_host: pi-kub02.theverse
+    pi-kub03:
+      ansible_host: pi-kub03.theverse
+    pi-kub04:
+      ansible_host: pi-kub04.theverse
+    pi-kub05:
+      ansible_host: pi-kub05.theverse
+    pi-kub06:
+      ansible_host: pi-kub06.theverse
   children:
     pi:
       hosts:
-        pi-unifi: {}
-        pi-speed: {}
-        pi-ansible: {}
-        pi-mobile: {}
-        pi-influx: {}
-        pi-octo: {}
-    desktop:
-      hosts:
-        pi-mobile: {}
-    unifi:
-      hosts:
-        pi-unifi: {}
+        pi-kub01: {}
+        pi-kub02: {}
+        pi-kub03: {}
+        pi-kub04: {}
+        pi-kub05: {}
+        pi-kub06: {}
     k8:
       hosts:
-        pi-octo: {}
-        pi-ansible: {}
-        pi-speed: {}
-        pi-influx: {}
+        pi-kub01: {}
+        pi-kub02: {}
+        pi-kub03: {}
+        pi-kub04: {}
+        pi-kub05: {}
+        pi-kub06: {}
   vars:
     ansible_python_interpreter: /usr/bin/python3
     remote_user: zach
