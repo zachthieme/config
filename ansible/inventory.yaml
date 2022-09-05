@@ -13,6 +13,8 @@ all:
       ansible_host: pi-kub05.theverse
     pi-kub06:
       ansible_host: pi-kub06.theverse
+    pi-test:
+      ansible_host: pi-test
   children:
     pi:
       hosts:
@@ -30,6 +32,9 @@ all:
         pi-kub04: {}
         pi-kub05: {}
         pi-kub06: {}
+    test:
+      hosts:
+        pi-test: {}
   vars:
     ansible_python_interpreter: /usr/bin/python3
     remote_user: zach

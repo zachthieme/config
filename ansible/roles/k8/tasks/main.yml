@@ -7,10 +7,6 @@
     - "cgroup_enable=cpuset"
     - "cgroup_memory=1"
     - "cgroup_enable=memory"
-- name: uninstall snap
-  package:
-    name: snap
-    state: absent 
 
 - name: install snap
   package:
@@ -22,8 +18,28 @@
     name: microk8s
     classic: yes 
 
+- name: install helm 
+  community.general.snap:
+    name: helm
+    classic: yes 
+
 - name: add zach to microk8s group
   user:
     name: zach
     groups: microk8s
     append: yes
+
+- name: Install command line tools
+  become: true
+  apt:
+    name: 
+    - exa
+    - neovim
+    - exa
+    - bat
+    - ripgrep
+    - fd-find
+    - fish
+    - autojump
+    - mosh
+    state: present

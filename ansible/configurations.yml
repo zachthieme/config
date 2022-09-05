@@ -5,6 +5,11 @@
   roles: 
     - update
 
+- hosts: test
+  ignore_unreachable: yes
+  roles: 
+    - test
+
 - hosts: desktop
   ignore_unreachable: yes
   roles:
