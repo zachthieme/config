@@ -10,17 +10,24 @@
   roles: 
     - test
 
-- hosts: desktop
+- hosts: radio
   ignore_unreachable: yes
   roles:
-    - desktop
     - usbNetwork
-    - kmonad
 
 - hosts: k8
   ignore_unreachable: yes
   become: true
   roles:
+    - base
     - k8
     - disableWifi
     - docker
+
+- hosts: pop
+  ignore_unreachable: yes
+  become: true
+  roles:
+    - base
+    - pop
+    - gitConfig

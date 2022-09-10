@@ -11,19 +11,6 @@
     state: present
     validate_certs: true
 
-- name: download gpg key for unifi
-  become: true
-  get_url:
-    url: https://dl.ui.com/unifi/unifi-repo.gpg 
-    dest: /etc/apt/trusted.gpg.d/unifi-repo.gpg
-
-- name: Add Unifi apt source
-  become: true
-  apt_repository:
-    repo: deb https://www.ui.com/downloads/unifi/debian stable ubiquiti
-    state: present
-    validate_certs: true
-
 - name: Install command line tools
   become: true
   apt:
@@ -74,12 +61,3 @@
     state: absent
     path: 
     - $HOME/.tmux.conf
-
-- name: enable password logins on ssh
-    lineinfile:
-      become: true
-      path: /etc/ssh/sshd_config
-      regexp: "^#PasswordAuthentication"
-      line: PasswordAuthentication yes
-      state: present
-      backrefs: true

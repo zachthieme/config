@@ -15,15 +15,18 @@ all:
       ansible_host: pi-kub06.theverse
     pi-test:
       ansible_host: pi-test
+    radio:
+      ansible_host: mobile-radio
+    mobile:
+      ansible_host: 10.0.30.212
   children:
-    pi:
-      hosts:
-        pi-kub01: {}
-        pi-kub02: {}
-        pi-kub03: {}
-        pi-kub04: {}
-        pi-kub05: {}
-        pi-kub06: {}
+    radio:
+       hosts:
+         radio: {}
+    pop:
+       hosts:
+         mobile: {}
+         radio: {}
     k8:
       hosts:
         pi-kub01: {}

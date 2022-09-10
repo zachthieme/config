@@ -1,0 +1,11 @@
+
+- name: rename the host
+  become: true
+  command: hostnamectl set-hostname {{ inventory_hostname }}
+
+- name: install apps via flatpak
+  become: true
+  flatpak:
+    name:
+    - vscode
+    - wsjtx 
