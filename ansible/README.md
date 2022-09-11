@@ -25,3 +25,10 @@ https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Upda
 ## adhoc command
     ➜ ansible k8 -m command -a uptime -i inventory.yaml
 	
+# For PopOS hosts
+sudo adduser zach sudo
+sudo apt install ansible
+ansible-galaxy collection install community.general
+logout / login 
+
+

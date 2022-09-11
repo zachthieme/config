@@ -2,8 +2,8 @@
 
 - hosts: all
   ignore_unreachable: yes
-  roles: 
-    - update
+#  roles: 
+#    - update
 
 - hosts: test
   ignore_unreachable: yes

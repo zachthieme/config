@@ -19,6 +19,7 @@ all:
       ansible_host: mobile-radio
     mobile:
       ansible_host: 10.0.30.212
+      ansible_connection: local
   children:
     radio:
        hosts:
@@ -26,7 +27,6 @@ all:
     pop:
        hosts:
          mobile: {}
-         radio: {}
     k8:
       hosts:
         pi-kub01: {}

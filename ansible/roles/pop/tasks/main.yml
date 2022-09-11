@@ -1,3 +1,9 @@
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
 
 - name: rename the host
   become: true
@@ -5,7 +11,9 @@
 
 - name: install apps via flatpak
   become: true
-  flatpak:
+  community.general.flatpak:
     name:
-    - vscode
-    - wsjtx 
+    - com.visualstudio.code 
+    - org.chromium.Chromium
+    state: present
+    method: user

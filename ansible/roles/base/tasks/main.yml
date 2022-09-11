@@ -29,7 +29,8 @@
     - ansible-lint
     - tmux
     - npm
-    - cargo 
+    - cargo
+    - openssh-server
     state: present
 
 - name: install snap's
