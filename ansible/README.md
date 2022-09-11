@@ -26,9 +26,11 @@ https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Upda
     ➜ ansible k8 -m command -a uptime -i inventory.yaml
 	
 # For PopOS hosts
-sudo adduser zach sudo
+```sudo adduser zach sudo
+sudo apt install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
 sudo apt install ansible
-ansible-galaxy collection install community.general
+ansible-galaxy collection install community.general```
 logout / login 
 
 
