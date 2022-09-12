@@ -19,7 +19,6 @@
     - bat
     - ripgrep
     - fd-find
-    - autojump
     - mosh
     - gh
     - snapd

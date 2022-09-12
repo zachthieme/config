@@ -1,0 +1,131 @@
+;; See keymap/tutorial.kbd for a more complete tutorial
+(defalias
+	lnav (layer-toggle navigation)
+	lnum (layer-toggle numbers) 
+	lscr (layer-toggle screen)
+
+	;; app commands
+	new (around lctl n)
+	ntab (around lctl t)
+	pup (around lmet up)
+	pdwn (around lmet down)	
+	brk (around lctl c)
+	find (around lctl f)
+	quit (around lmet q)
+	close (around lmet w)
+	url (around lctl l)
+	rel (around lctl r)
+	sall (around lctl a)
+	save (around lctl s)
+	undo (around lctl z)
+	cut (around lctl x)
+	paste C-v 
+	copy C-c 
+	zin (around lctl +)
+	zout (around lctl -)
+	
+
+	;; general short cuts
+	launch (around lmet d)
+	
+	;; Cluster Buttons
+	;; Space when tapped and Navigation when held
+	spcnav (tap-hold 200 spc @lnav)
+	entnum (tap-hold 200 ret @lnum)
+	escnum (tap-hold 200 esc @lnum)
+	tabnum (tap-hold 200 tab @lnum)
+    lcnum (tap-hold 200 @launch @lnum)
+
+	;; Meta Row
+	brcscr (tap-hold 200 [ @lscr)
+	minscr (tap-hold 200 - @lscr)
+
+	;; SpaceCadet Parens
+	plsft (tap-hold 200 \( lsft )
+	prsft (tap-hold 200 \) lsft )
+	
+	;; Home Row Holds
+	scmeta (tap-hold 200 ; lmet)
+	ameta (tap-hold 200 a lmet)
+	
+	sctl (tap-hold 200 s lctl)
+	llctl (tap-hold 200 l lctl)
+
+	kalt (tap-hold 200 k lalt)
+	dalt (tap-hold 200 d lalt)
+
+	fsft (tap-hold 200 f lsft)
+	jsft (tap-hold 200 j lsft)
+
+	lwrd (around lalt left)
+	rwrd (around lalt right)
+	eol  (around lmet right)
+	bol  (around lmet left)
+
+	;; window movement
+	lthrd C-A-S-4
+	mthrd C-A-S-5
+	rthrd C-A-S-6
+
+	lhalf C-A-S-left
+	rhalf C-A-S-right
+
+	sthf C-A-S-9
+	sbhf C-A-S-3
+  
+	l2thrd C-A-S-1
+	r2thrd C-A-S-2
+	
+	wmax C-A-S-ret
+)
+
+(defcfg
+  input (device-file "/dev/input/by-id/usb-Apple_Inc._Apple_Keyboard-event-kbd")
+  output (uinput-sink "dasta") 
+  fallthrough true
+)
+
+(defsrc
+  esc     f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12
+  grv     1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab     q       w       e       r       t       y       u       i       o       p       [        ]       \
+  caps    a       s       d       f       g       h       j       k       l       ;       '       ret
+  lsft    z       x       c       v       b       n       m       ,       .       /       rsft     up
+  f       lctl    lalt    lmet                   spc                      rmet    ralt    left     down   rght
+)
+
+(deflayer default
+  esc     f1      f2      f3      f4      f5      f6      f7      f8      f9      f10     f11     f12
+  grv     1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab     q       w       e       r       t       y       u       i       o       p       [       ]       \
+  @escnum @ameta  @sctl   @dalt   @fsft   g       h       @jsft   @kalt   @llctl  @scmeta '       @entnum
+  @plsft  z       x       c       v       b       n       m       ,       .       /       @prsft  up
+  f       lctl    @lcnum  @brcscr              @spcnav                    @minscr ralt    left    down    rght
+)
+
+(deflayer navigation
+	_       _       _       _       _       _       _       _       _       _       _       _       _
+ 	_       _       _       _       _       _       _       _       _       _       _       _       _       _
+ 	_       @quit   @close  @url    @rel    @ntab   @zin    @lwrd   up      @rwrd   @zout   _       _       _
+	_       @sall   @save   bspc    del     _       left    down    up      right   @bol    @eol    _ 
+ 	_       @undo   @cut    @copy   @paste  _       @new    @pup    @brk    @pdwn   @find   _       _
+ 	_       _       _       _                       _                       _       _       _       _       _
+)
+
+(deflayer numbers
+  _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       &       @       \(      \)      |       _       7       8       9       +       *       _       _
+  _       #       $       {       }       *       _       4       5       6       -       /       _
+  _       %       ^       [       ]       !       _       1       2       3       =       =       _
+  _       _       _       _                       _                       0       .       _       _       _
+)
+
+(deflayer screen
+  _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       _       _       _       _       _       _
+  _       _       _       _       _       _       _       _       @wmax   @sthf   _       _       _       _
+  _       _       _       _       _       _       @lhalf  @lthrd  @mthrd  @rthrd  @rhalf  _       _
+  _       _       _       _       _       _       _       @l2thrd @r2thrd @sbhf   _       _       _
+  _       _       _       _                       _                       _       _       _       _       _
+)

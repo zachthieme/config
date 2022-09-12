@@ -1,0 +1,10 @@
+Meta+Shift+C      Close the focused window.
+Meta+Enter        Move the focused window to the master pane on the left.
+Meta+H & Meta+L   Resize the border between the master and secondary panes.
+
+Meta+. & Meta+,   Control the number of windows displayed in the master pane on the left.
+Meta+Shft+J or K  Swap the focused window with an adjacent window.
+
+Meta+Shift+Q      Log out.
+Meta+/            Help window 
+
