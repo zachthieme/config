@@ -23,7 +23,7 @@
 https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776
 
 ## adhoc command
-    nsible k8 -m command -a uptime -i inventory.yaml
+    ansible k8 -m command -a uptime -i inventory.yaml
 	
 # For PopOS hosts 
     sudo -i
