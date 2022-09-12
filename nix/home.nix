@@ -17,6 +17,10 @@
     file."/home/zach/.config/kitty/kitty.conf".source = ./kitty/kitty.conf;
   };
 
+  home.sessionVariables = {
+    TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";                                                                                                                                             
+  };
+
   # enable unFree programs (code, chrome) to be installed
   nixpkgs.config.allowUnfree = true;
 
