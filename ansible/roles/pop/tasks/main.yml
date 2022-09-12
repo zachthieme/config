@@ -23,14 +23,6 @@
     - cargo
     state: present
 
-- name: remove apps via flatpak
-  become: true
-  community.general.flatpak:
-    name:
-    - org.mozilla.firefox 
-    state: absent
-    method: system
-
 - name: install apps via flatpak
   become: true
   community.general.flatpak:

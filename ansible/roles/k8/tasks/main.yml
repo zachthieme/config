@@ -8,11 +8,6 @@
     - "cgroup_memory=1"
     - "cgroup_enable=memory"
 
-- name: install snap
-  package:
-    name: snapd
-    state: present 
-
 - name: install k8 
   community.general.snap:
     name: microk8s
@@ -29,17 +24,3 @@
     groups: microk8s
     append: yes
 
-- name: Install command line tools
-  become: true
-  apt:
-    name: 
-    - exa
-    - neovim
-    - exa
-    - bat
-    - ripgrep
-    - fd-find
-    - fish
-    - autojump
-    - mosh
-    state: present
