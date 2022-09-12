@@ -1,5 +1,5 @@
 adduser zach sudo
-sed -i "s/\%sudo    ALL=(ALL:ALL) ALL/\%sudo ALL=(ALL:ALL) NOPASSWD:ALL/" /etc/sudoers
+sed -i "s/\%sudo\s*ALL=(ALL:ALL) ALL/\%sudo ALL=(ALL:ALL) NOPASSWD:ALL/" /etc/sudoers
 apt -y install software-properties-common
 apt-add-repository ppa:ansible/ansible -y
 apt -y update
