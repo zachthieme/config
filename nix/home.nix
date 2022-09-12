@@ -68,6 +68,7 @@
           vim-nix
           vim-lsp
           nvim-lspconfig
+          telescope-nvim 
         ];
         extraConfig = builtins.readFile ./nvim/init.vim;
     };
