@@ -25,25 +25,18 @@
     unstable.autojump      # used to move between directories fast
     unstable.helix         # fun vim/kakoune style editor with sane defaults
     unstable.nix-tree      # check dependency tree for nix packages
+    unstable.fish          # fish shell 
 
     # faster newer better terminal tools
     unstable.gitui         # lazy way to manage git
     unstable.rargs         # similar to xargs
     unstable.tealdeer      # rust version of tldr that shows simple man
     unstable.zenith        # top like tools with graphs 
+    unstable.comma         # app that will pull files from the nix store but not install them
   ];
 
   programs = {
     home-manager.enable = true;
-
-    # set autojump config
-    autojump.enableFishIntegration = true;
-
-    #  set fish shell configuration file
-    fish = {
-      enable = true;
-      interactiveShellInit = builtins.readFile ./fish/config.fish;
-    };
 
     # setup my git configurations
     gh.enable = true;

@@ -31,8 +31,3 @@ alias cc='cp /etc/nixos/configuration.nix ~/.config/nixpkgs/system/configuration
 
 alias nf='fd . /home/zach/.config -H --changed-within 1d -E Code -E google-chrome -x /home/zach/.nix-profile/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | sort | uniq'
 alias nfa='fd . /home/zach/.config -H --changed-within 1d -E chromium -x /home/zach/.nix-profile/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | uniq | rargs /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add {0}'
-
-
-
-
-
