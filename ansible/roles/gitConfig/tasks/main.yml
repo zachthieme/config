@@ -9,22 +9,22 @@
 - name: more git fixing
   shell: gh auth setup-git
 
-- name: check if gitignore exists
-  stat:
-    path: $HOME/.gitignore
-  register: stat_gitignore_result
-  
-- name: create blank gitignore
-  file:
-    path: $HOME/.gitignore
-    state: touch
-  when: not stat_gitignore_result.stat.exists
-
-- name: ensure .cfg is in .gitignore
-  lineinfile:
-    path: $HOME/.gitignore
-    regexp: '^\.cfg'
-    line: .cfg
+    #- name: check if gitignore exists
+    #  stat:
+    #    path: $HOME/.gitignore
+    #  register: stat_gitignore_result
+    #  
+    #- name: create blank gitignore
+    #  file:
+    #    path: $HOME/.gitignore
+    #    state: touch
+    #  when: not stat_gitignore_result.stat.exists
+    #
+    #- name: ensure .cfg is in .gitignore
+    #  lineinfile:
+    #    path: $HOME/.gitignore
+    #    regexp: '^\.cfg'
+    #    line: .cfg
 
       #- name: Clone config files
       #  git: 
@@ -48,8 +48,8 @@
       #- name: set git upstream
       #  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push --set-upstream origin master
 
-- name: set git email
-  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.email "zach@techsage.org"
-
-- name: set git name
-  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.name "Zach Thieme"
+      #- name: set git email
+      #  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.email "zach@techsage.org"
+      #
+      #- name: set git name
+      #  shell: /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME config --global user.name "Zach Thieme"

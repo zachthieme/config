@@ -1,3 +1,10 @@
+- name: Add the flathub flatpak repository remote to the system installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: system
+
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
@@ -9,6 +16,21 @@
   become: true
   command: hostnamectl set-hostname {{ inventory_hostname }}
 
+- name: Install command line tools
+  become: true
+  apt:
+    name: 
+    - cargo
+    state: present
+
+- name: remove apps via flatpak
+  become: true
+  community.general.flatpak:
+    name:
+    - org.mozilla.firefox 
+    state: absent
+    method: system
+
 - name: install apps via flatpak
   become: true
   community.general.flatpak:
@@ -16,4 +38,4 @@
     - com.visualstudio.code 
     - org.chromium.Chromium
     state: present
-    method: user
+    method: system

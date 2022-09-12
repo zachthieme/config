@@ -28,7 +28,6 @@
     - ansible-lint
     - tmux
     - npm
-    - cargo
     - openssh-server
     state: present
 
