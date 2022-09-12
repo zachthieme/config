@@ -5,6 +5,3 @@ apt-add-repository ppa:ansible/ansible -y
 apt -y update
 apt -y install ansible
 ansible-galaxy collection install community.general
-mkdir /home/zach/Code
-cd /home/zach/Code
-git clone https://github.com/zachthieme/config.git
