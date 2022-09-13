@@ -17,19 +17,10 @@
     file."/home/zach/.config/kitty/kitty.conf".source = ./kitty/kitty.conf;
   };
 
-  home.sessionVariables = {
-    TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";                                                                                                                                             
-  };
-
   # enable unFree programs (code, chrome) to be installed
   nixpkgs.config.allowUnfree = true;
 
   home.packages = [
-    # Command line tools
-    unstable.autojump      # used to move between directories fast
-    unstable.helix         # fun vim/kakoune style editor with sane defaults
-    unstable.nix-tree      # check dependency tree for nix packages
-    unstable.fish          # fish shell 
 
     # faster newer better terminal tools
     unstable.gitui         # lazy way to manage git
