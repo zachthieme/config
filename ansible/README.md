@@ -28,6 +28,5 @@ https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Upda
 # For PopOS hosts 
     sudo -i
     sh -c "$(wget https://raw.githubusercontent.com/zachthieme/config/master/ansible/install.sh -O -)"
-    execute the contents of: https://raw.githubusercontent.com/zachthieme/config/master/ansible/user.sh 
-    run ansible
+    sh -c "$(wget https://raw.githubusercontent.com/zachthieme/config/master/ansible/user.sh -O -)"
 
