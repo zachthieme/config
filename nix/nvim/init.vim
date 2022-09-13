@@ -11,6 +11,9 @@ set shiftwidth=2
 set tabstop=2
 set autoindent
 
+" map ctrl-v to past system in insert mode
+inoremap <C-v> <C-r>*
+
 " remove highlighting from searches
 set nohlsearch
 set nowrap
