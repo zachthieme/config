@@ -68,6 +68,7 @@
     owner: zach
     group: zach
     decrypt: yes
+    mode: '0600'
   when: ansible_hostname == "mobile" 
 
 - name: distribute ssh keys
@@ -76,4 +77,5 @@
     dest: /home/zach/.ssh/id_rsa.pub
     owner: zach
     group: zach
+    mode: '0600'
   when: ansible_hostname == "mobile" 
