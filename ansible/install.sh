@@ -7,3 +7,4 @@ sudo add-apt-repository ppa:neovim-ppa/stable -y
 apt -y update
 apt -y install ansible
 ansible-galaxy collection install community.general
+ansible-galaxy collection install ansible.posix

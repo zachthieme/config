@@ -60,3 +60,20 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: /home/zach/.local/share/nvim/site/autoload/plug.vim
     force: yes
+
+- name: distribute private ssh keys
+  copy:
+    src: files/keys.enc
+    dest: /home/zach/.ssh/id_rsa
+    owner: zach
+    group: zach
+    decrypt: yes
+  when: ansible_hostname == "mobile" 
+
+- name: distribute ssh keys
+  copy:
+    src: files/pub
+    dest: /home/zach/.ssh/id_rsa.pub
+    owner: zach
+    group: zach
+  when: ansible_hostname == "mobile" 
