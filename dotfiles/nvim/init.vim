@@ -86,3 +86,19 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'liuchengxu/vim-which-key'
+Plug 'psliwka/vim-smoothie'
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+call plug#end()
+

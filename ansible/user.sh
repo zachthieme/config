@@ -13,8 +13,7 @@ export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/
 nix-shell '<home-manager>' -A install
 
 # link config files to proper place
-rm -R /home/zach/.config/nixpkgs/
-ln -s /home/zach/Code/config/nix /home/zach/.config/nixpkgs
+ln -s /home/zach/Code/config/dotfiles/* /home/zach/.config/
 
 # bring configuration live
 home-manager switch
