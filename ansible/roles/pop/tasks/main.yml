@@ -23,6 +23,13 @@
     - cargo
     state: present
 
+- name: install apps via cargo
+  become: true
+  community.general.cargo:
+    name: 
+    - gitui
+    - bat
+
 - name: install apps via flatpak
   become: true
   community.general.flatpak:

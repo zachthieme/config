@@ -15,12 +15,11 @@
   become: true
   apt:
     name: 
+    - neovim            # vim editor for the next age
     - kitty             # highly configurable terminal program
-    - autojump          # used to jump around directories quickly
     - zoxide            # autojump replacement
     - fish              # friendly shell
     - exa               # rust based ls replacement
-    - bat               # rust based cat replacement
     - ripgrep           # rust based grep replacement
     - fd-find           # fust based find replacement
     - mosh              # ability to connect via slow links

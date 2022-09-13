@@ -1,6 +1,7 @@
 set -x STARSHIP_CONFIG $HOME/.config/starship.toml
 set -x EDITOR nvim
 
+fish_add_path ~/.cargo/bin
 set -g fish_term24bit 1
 set -g theme_nerd_fonts yes
 
