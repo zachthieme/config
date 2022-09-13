@@ -99,6 +99,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+"$/. Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
