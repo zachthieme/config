@@ -23,4 +23,3 @@
     sh -c "$(wget https://raw.githubusercontent.com/zachthieme/config/master/ansible/install.sh -O -)"
     exit
     sh -c "$(wget https://raw.githubusercontent.com/zachthieme/config/master/ansible/user.sh -O -)"
-
