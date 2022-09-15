@@ -4,6 +4,8 @@
   ignore_unreachable: yes
   roles: 
     - update
+    - base
+    - dotfiles
 
 - hosts: test
   ignore_unreachable: yes
@@ -19,7 +21,6 @@
   ignore_unreachable: yes
   become: true
   roles:
-    - base
     - k8
     - disableWifi
     - docker
@@ -28,6 +29,5 @@
   ignore_unreachable: yes
   become: true
   roles:
-    - base
     - pop
     - gitConfig

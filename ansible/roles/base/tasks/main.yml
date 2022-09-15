@@ -1,21 +1,7 @@
-- name: download gpg key for github cli
-  become: true
-  get_url: 
-    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-    dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
-
-- name: Add github apt source
-  become: true
-  apt_repository:
-    repo: deb https://cli.github.com/packages stable main
-    state: present
-    validate_certs: true
-
 - name: Install command line tools
   become: true
   apt:
     name: 
-    - neovim            # vim editor for the next age
     - kitty             # highly configurable terminal program
     - zoxide            # autojump replacement
     - fish              # friendly shell
@@ -23,12 +9,12 @@
     - ripgrep           # rust based grep replacement
     - fd-find           # fust based find replacement
     - mosh              # ability to connect via slow links
-    - gh                # github client
     - snapd             # allows you to install snaps
     - ansible-lint      
     - tmux              # terminal multiplexer
     - npm
     - openssh-server    # ssh tools
+    - iperf3            # add network testing tools
     state: present
 
 - name: install snap's
@@ -50,21 +36,10 @@
     name: zach
     shell: /usr/bin/fish
 
-- name: add folder for vim plug (vim plugin manager)
-  file:
-    path: /home/zach/.local/share/nvim/site/autoload/
-    state: directory
-                        
-- name: install vim-plug
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: /home/zach/.local/share/nvim/site/autoload/plug.vim
-    force: yes
-
 - name: distribute private ssh keys
   copy:
     src: files/keys.enc
-    dest: /home/zach/.ssh/id_rsa
+    dest: $HOME/.ssh/id_rsa
     owner: zach
     group: zach
     decrypt: yes
@@ -74,7 +49,7 @@
 - name: distribute ssh keys
   copy:
     src: files/pub
-    dest: /home/zach/.ssh/id_rsa.pub
+    dest: $HOME/.ssh/id_rsa.pub
     owner: zach
     group: zach
     mode: '0600'

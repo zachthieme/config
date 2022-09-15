@@ -1,0 +1,19 @@
+- name: download gpg key for github cli
+    become: true
+    get_url: 
+      url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+      dest: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
+
+- name: Add github apt source
+    become: true
+    apt_repository:
+      repo: deb https://cli.github.com/packages stable main
+      state: present
+      validate_certs: true
+
+- name: Install command line tools
+  become: true
+  apt:
+    name: 
+    - gh
+    state: present
