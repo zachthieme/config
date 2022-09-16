@@ -9,6 +9,13 @@
     dest: $HOME/.local/share/nvim/site/autoload/plug.vim
     force: yes
 
+- name: fix ownership that seems to drift to root
+  file:
+    path: $HOME/.local/share/nvim/site/autoload/plug.vim
+    recurse:
+    owner: zach
+    group: zach
+
 - name: Install current stable neovim 
   become: true
   community.general.snap:
