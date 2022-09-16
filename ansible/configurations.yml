@@ -7,6 +7,7 @@
     - base
     - dotfiles
     - nvim
+    - zsh
 
 - hosts: test
   ignore_unreachable: yes

@@ -11,27 +11,6 @@
     name: zach
     shell: /usr/bin/zsh
 
-- name: clone repo for zsh-vi-mode 
-  git:
-    repo: https://github.com/jeffreytse/zsh-vi-mode
-    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
-    force: yes
-    update: yes
-      
-- name: clone repo for zsh-syntax-highlighting
-  git:
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    force: yes
-    update: yes
-
-- name: clone repo for zsh-autosuggestions
-  git:
-    repo: https://github.com/zsh-users/zsh-autosuggestions
-    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-    force: yes
-    update: yes
-
 - name: setup oh-my-zsh
   include_role:
     name: gantsign.oh-my-zsh
@@ -53,11 +32,34 @@
             - zsh-vi-mode
             - zsh-syntax-highlighting 
 
+- name: clone repo for zsh-vi-mode 
+  git:
+    repo: https://github.com/jeffreytse/zsh-vi-mode
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
+    force: yes
+    update: yes
+      
+- name: clone repo for zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    force: yes
+    update: yes
+
+- name: clone repo for zsh-autosuggestions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    force: yes
+    update: yes
+
+
 - name: add custom items to .zshrc
   blockinfile:
     path: $HOME/.zshrc
     block: |
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+      export PATH="$PATH:/snap/bin"
       eval "$(starship init zsh)" 
       eval "$(zoxide init zsh)"
       alias exa='exa --group-directories-first'

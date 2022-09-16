@@ -16,7 +16,7 @@
     ansible-vault encrypt secrets.enc
 
 ## adhoc command
-    ansible k8 -m command -a uptime -i inventory.yaml
+    ansible k8 -m command -a 'uptime' -i inventory.yaml
 	
 # For PopOS hosts 
     sudo -i
