@@ -59,10 +59,11 @@
     path: $HOME/.zshrc
     block: |
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-      export PATH="$PATH:/snap/bin"
+      export PATH="/snap/bin:$PATH"
       eval "$(starship init zsh)" 
       eval "$(zoxide init zsh)"
       alias exa='exa --group-directories-first'
+      alias vi='nvim'
       alias l='exa'
       alias la='exa -la'
       alias a='exa -a'
