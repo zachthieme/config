@@ -9,9 +9,8 @@
     dest: $HOME/.local/share/nvim/site/autoload/plug.vim
     force: yes
 
-- name: Install command line tools
+- name: Install current stable neovim 
   become: true
-  apt:
-    name: 
-    - neovim            # vim editor for the next age
-    state: present
+  community.general.snap:
+    name: nvim            # vim editor for the next age
+    classic: yes
