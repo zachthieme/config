@@ -1,0 +1,73 @@
+- name: Install command line tools
+  become: true
+  apt:
+    name: 
+    - zsh               # fun to use shell
+    state: present
+
+- name: set shell to zsh
+  become: true
+  user:
+    name: zach
+    shell: /usr/bin/zsh
+
+- name: clone repo for zsh-vi-mode 
+  git:
+    repo: https://github.com/jeffreytse/zsh-vi-mode
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
+    force: yes
+    update: yes
+      
+- name: clone repo for zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    force: yes
+    update: yes
+
+- name: clone repo for zsh-autosuggestions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    force: yes
+    update: yes
+
+- name: setup oh-my-zsh
+  include_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    users:
+      - username: zach
+        oh_my_zsh:
+          theme: robbyrussell
+          plugins:
+            - git
+            - aws
+            - history
+            - sudo
+            - web-search
+            - copyfile
+            - copybuffer
+            - dirhistory
+            - zsh-autosuggestions
+            - zsh-vi-mode
+            - zsh-syntax-highlighting 
+
+- name: add custom items to .zshrc
+  blockinfile:
+    path: $HOME/.zshrc
+    block: |
+      ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+      eval "$(starship init zsh)" 
+      eval "$(zoxide init zsh)"
+      alias exa='exa --group-directories-first'
+      alias l='exa'
+      alias la='exa -la'
+      alias a='exa -a'
+      alias ssh='kitty +kitten ssh'
+      alias j='z'
+      alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+      # find files changed in the .config directory in the last day 
+      alias nf='fdfind . /home/zach/.config -H --changed-within 1d -E Code -E google-chrome -x /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | sort | uniq'
+      # git add files that changed in last day in .config
+      alias nfa='fdfind . /home/zach/.config -H --changed-within 1d -E chromium -x /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | uniq | rargs /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add {0}'
