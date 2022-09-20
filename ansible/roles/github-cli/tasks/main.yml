@@ -17,3 +17,18 @@
     name: 
     - gh
     state: present
+
+- name: setup git defaults
+  include_role: 
+    name: gantsign.git_user
+  vars:
+    users:
+      - username: zach
+        git_username: Zach Thieme
+        git_user_email: zach@techsage.org
+        git_user_force: yes
+
+- name: add gh credentials
+  shell: gh auth login --with-token 
+  args:
+    stdin: {{ github_pat }}

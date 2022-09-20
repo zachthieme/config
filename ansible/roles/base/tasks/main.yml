@@ -3,6 +3,7 @@
   apt:
     name: 
     - kitty             # highly configurable terminal program
+    - python3-pip       # required for qmk
     - zoxide            # autojump replacement
     - exa               # rust based ls replacement
     - ripgrep           # rust based grep replacement
