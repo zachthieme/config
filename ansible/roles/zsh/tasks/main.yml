@@ -3,13 +3,13 @@
     path: $HOME/.fonts
     state: directory
 
-- name: FiraCode exists
-  shell: "ls $HOME/.fonts/Fira*Code*Nerd*Font*Complete*"
+- name: See if FiraCode exists
+  stat:
+    path: $HOME/.fonts/Fira\ Code\ Bold\ Nerd\ Font\ Complete.ttf
   register: fira_exists
-  ignore_errors: yes
 
 - name: Download Fira Code
-  when: fira_exists is failed
+  when: not fira_exists.stat.exists
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
     dest: "$HOME/.fonts/"
@@ -75,18 +75,4 @@
   blockinfile:
     path: $HOME/.zshrc
     block: |
-      ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-      export PATH="/snap/bin:$HOME/.local/bin:$PATH"
-      eval "$(starship init zsh)" 
-      eval "$(zoxide init zsh)"
-      alias exa='exa --group-directories-first'
-      alias vi='nvim'
-      alias l='exa'
-      alias la='exa -la'
-      alias a='exa -a'
-      alias j='z'
-      alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-      # find files changed in the .config directory in the last day 
-      alias nf='fdfind . /home/zach/.config -H --changed-within 1d -E Code -E google-chrome -x /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | sort | uniq'
-      # git add files that changed in last day in .config
-      alias nfa='fdfind . /home/zach/.config -H --changed-within 1d -E chromium -x /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME ls-files --others {} | uniq | rargs /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add {0}'
+      source $HOME/.config/zsh/zshrc
